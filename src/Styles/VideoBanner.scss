@@ -1,0 +1,33 @@
+.VideoBanner {
+  @keyframes bounce {
+    from {
+      bottom: -2.5%;
+      left: 50%;
+      transform: translate(-50%, -2.5%);
+    }
+    to {
+      bottom: -4%;
+      left: 50%;
+      transform: translate(-50%, -4%);
+    }
+  }
+  video {
+    height: 85vh;
+  }
+  img {
+    position: absolute;
+    bottom: 5%;
+    left: 50%;
+    transform: translate(-50%, 5%);
+    width: 20%;
+    margin-bottom: 20px;
+  }
+
+  .ScrollDownArrow {
+    position: absolute;
+    animation-name: bounce;
+    animation-direction: alternate;
+    animation-iteration-count: infinite;
+    animation-duration: 2s;
+  }
+}

@@ -1,0 +1,24 @@
+.NavLinks {
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  padding: 0px;
+  justify-content: space-evenly;
+  list-style: none;
+  gap: 20px;
+
+  li {
+    font-family: 'Inter';
+    font-style: normal;
+    font-weight: 700;
+    font-size: 16px;
+    line-height: 19px;
+    text-transform: uppercase;
+    color: #ffffff;
+    transition: all 0.5s;
+  }
+  li:hover {
+    color: #d79e00;
+    cursor: pointer;
+  }
+}
