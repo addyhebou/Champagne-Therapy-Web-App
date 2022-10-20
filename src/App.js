@@ -1,6 +1,7 @@
 import { React } from 'react';
 import { Route, Routes } from 'react-router-dom';
 import Home from './Pages/Home';
+import Roster from './Pages/Roster';
 import './App.scss';
 
 function App() {
@@ -8,14 +9,10 @@ function App() {
     <div className="App">
       <Routes>
         <Route path="/" element={<Home />} />
-        <Route path="order" element={<OrderForm />} />
+        <Route path="/roster" element={<Roster />} />
       </Routes>
     </div>
   );
-}
-
-function OrderForm() {
-  return <div>OrderForm</div>;
 }
 
 export default App;

@@ -15,6 +15,7 @@ export default function HomeContent({ scrollTarget }) {
       <BlockSegment
         orientation="left"
         header="ROSTER"
+        route="/roster"
         description="The Champagne Music Therapy Group team includes a diverse array of songwriters, producers, and artists."
         component={<TextField placeholder="Search our songwriters" />}
         secondaryDescription="Or view our entire roster"
@@ -27,6 +28,7 @@ export default function HomeContent({ scrollTarget }) {
       <BlockSegment
         orientation="right"
         header="DISCOGRAPHY"
+        route="/discography"
         description="View all records produced or written by the Champagne Therapy Music Group. Or view all playlists curated by the Champagne Therapy Music Group"
         buttonText="View All"
         secondaryComponent={<Playlists />}

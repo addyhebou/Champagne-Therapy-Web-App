@@ -19,7 +19,7 @@ const textContent = (props) => {
         <p>{props.description}</p>
         {props.component}
         <p>{props.secondaryDescription}</p>
-        <Button text={props.buttonText} />
+        <Button text={props.buttonText} link={props.route} />
         {props.secondaryComponent}
       </div>
     </div>
@@ -38,7 +38,6 @@ const mediaContent = (imageURL, videoURL, imageDescription) => {
 };
 export default function BlockSegment(props) {
   const orientation = props.orientation === 'left' ? 'row' : 'row-reverse';
-  console.log(props);
   return (
     <div className={`BlockSegment ${orientation}`}>
       {textContent(props)}
