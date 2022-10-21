@@ -1,4 +1,5 @@
 import React from 'react';
+import { Link } from 'react-router-dom';
 import '../Styles/GroupGallery.scss';
 
 export default function GroupGallery({ images, orientation, id }) {
@@ -8,8 +9,13 @@ export default function GroupGallery({ images, orientation, id }) {
         const gridAreaStyle = i === 0 ? 'header' : `cell-${i}`;
         return (
           <div className={`${gridAreaStyle} imgDiv`}>
-            <caption>{img.props.alt}</caption>
-            {img}
+            <Link
+              to={`/profile/${img.props.alt}`}
+              state={{ writer: img.props.alt }}
+            >
+              <caption>{img.props.alt}</caption>
+              {img}
+            </Link>
           </div>
         );
       })}

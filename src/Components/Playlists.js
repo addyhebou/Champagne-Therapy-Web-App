@@ -8,6 +8,8 @@ export default function Playlists() {
       link: 'https://open.spotify.com/playlist/37i9dQZF1EFxX6RHpDdFFC?si=aeb846d4c0854fbc',
       imageURL:
         'https://storage.googleapis.com/champagne-media/Tommy%20Brown%20Playlist.jpeg',
+      bigProfileImageURL:
+        'https://storage.googleapis.com/champagne-media/Tommy%20Brown%20Big%20Profile.png',
     },
     {
       title: '#CTMG',
