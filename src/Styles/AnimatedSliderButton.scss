@@ -1,2 +1,47 @@
 .AnimatedSliderButton {
+  width: 334px;
+  height: 63px;
+
+  background: linear-gradient(90deg, #d79e00 50%, rgb(217, 217, 217) 0)
+    var(--_p, 100%) / 200% no-repeat;
+  -webkit-background-clip: border-box;
+  background-clip: border-box;
+  transition: 0.5s;
+  border-radius: 30px;
+
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  gap: 10px;
+  span {
+    font-family: 'Helvetica Neue';
+    font-style: bold;
+    font-weight: 700;
+    font-size: 22px;
+    line-height: 27px;
+    /* identical to box height */
+
+    text-transform: capitalize;
+
+    // color: #ffffff;
+    -webkit-background-clip: border-box;
+    background-clip: border-box;
+    transition: 0.5s;
+    // transition-delay: 0.5s;
+    /* identical to box height */
+
+    text-transform: capitalize;
+
+    color: linear-gradient(90deg, #9e0000 50%, rgb(88, 88, 88) 0)
+      var(--_p, 100%) / 200% no-repeat;
+  }
+  span:hover {
+    --_p: 0%;
+    color: white;
+  }
+}
+
+.AnimatedSliderButton:hover {
+  --_p: 0%;
+  cursor: pointer;
 }

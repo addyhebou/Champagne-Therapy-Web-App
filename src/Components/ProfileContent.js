@@ -8,16 +8,38 @@ export default function ProfileContent({
   biography,
   socialURLs,
 }) {
+  console.log(socialURLs);
   return (
     <div className="ProfileContent">
       <div className="text">
         <h1>{name}</h1>
-        {Object.values(socialURLs).map((value) => value && <p>{value}</p>)}
-        <AnimatedSliderButton text={'View Discography'} />
-        <h2>Biography</h2>
-        <p>{biography}</p>
+        <div className="socialIcons">
+          {Object.entries(socialURLs).map(
+            ([key, value]) =>
+              value && (
+                <div>
+                  <a href={value} target="_blank" rel="noreferrer">
+                    <img />
+                    {key}
+                  </a>
+                  {/* <label>{value}</label> */}
+                </div>
+              )
+          )}
+        </div>
+        <AnimatedSliderButton
+          text={'View Discography'}
+          width={'large'}
+          link={socialURLs['Spotify']}
+        />
+        <>
+          <h2>Biography</h2>
+          <p>{biography}</p>
+        </>
       </div>
-      <img src={imageURL} alt={name} />
+      <div className="media">
+        <img src={imageURL} alt={name} />
+      </div>
     </div>
   );
 }
