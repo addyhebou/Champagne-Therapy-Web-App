@@ -8,7 +8,6 @@ export default function ProfileContent({
   biography,
   socialURLs,
 }) {
-  console.log(socialURLs);
   return (
     <div className="ProfileContent">
       <div className="text">

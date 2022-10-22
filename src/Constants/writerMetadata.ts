@@ -23,4 +23,6 @@ export const writers = {
       YouTube: '',
     },
   },
+  'Saint Steph': {},
+  'Mr. Franks': {},
 };

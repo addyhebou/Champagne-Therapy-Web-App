@@ -1,8 +1,10 @@
-import React from 'react';
+import { React, useEffect, useState } from 'react';
 import Navbar from '../Components/Navbar';
 import TextField from '../Components/TextField';
 import ImageGallery from '../Components/ImageGallery';
 import '../Styles/Roster.scss';
+import { writers } from '../Constants/writerMetadata.ts';
+import { Link } from 'react-router-dom';
 
 export default function Roster() {
   const rosterList = [
@@ -37,12 +39,50 @@ export default function Roster() {
         'https://storage.googleapis.com/champagne-media/Saint%20Steph%20Profile.png',
     },
   ];
+  const [searchedWriter, setSearchedWriter] = useState('');
+
+  useEffect(() => {
+    console.log(searchedWriter);
+  }, [searchedWriter]);
+
+  const searchWriters = (currentSearch) => {
+    setSearchedWriter(currentSearch);
+  };
+
+  const doesWriterMatchSearchName = (writer) => {
+    return writer.toLowerCase().includes(searchedWriter.toLowerCase());
+  };
+
+  const filteredWriters = Object.keys(writers).filter((writer) =>
+    doesWriterMatchSearchName(writer)
+  );
+
   return (
     <div className="Roster">
       <Navbar />
       <h1>OUR ROSTER</h1>
-      <TextField placeholder={'Search our songwriters'} />
-      <ImageGallery rosterList={rosterList} rounded gap />
+      <TextField
+        value={searchedWriter}
+        placeholder={'Search our songwriters'}
+        onChange={searchWriters}
+      />
+      {searchedWriter === '' ? (
+        <ImageGallery rosterList={rosterList} rounded gap />
+      ) : (
+        <SearchedList filteredWriters={filteredWriters} />
+      )}
     </div>
   );
 }
+
+const SearchedList = ({ filteredWriters }) => {
+  return (
+    <ul className="SearchedList">
+      {filteredWriters.map((writer) => (
+        <Link to={`/profile/${writer}`} style={{ textDecoration: 'none' }}>
+          <li>{writer}</li>
+        </Link>
+      ))}
+    </ul>
+  );
+};
