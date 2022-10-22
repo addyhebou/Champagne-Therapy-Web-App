@@ -5,6 +5,7 @@
   align-items: flex-start;
   padding: 0px;
   gap: 11px;
+  justify-content: space-between;
 }
 
 .row {
@@ -44,6 +45,9 @@
       /* identical to box height */
 
       color: #ffffff;
+
+      margin-left: 40px;
+      margin-right: 40px;
     }
   }
   .nestedContent {
@@ -71,11 +75,11 @@
     width: 80%;
   }
   video {
-    width: 600px;
+    width: 62.5%;
     position: absolute;
     z-index: 2;
-    margin-left: -1050px;
-    margin-top: 275px;
-    // bottom: 100%;
+    bottom: -5%;
+    left: -30%;
+    // transform: translate(0%, 0%);
   }
 }

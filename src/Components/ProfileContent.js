@@ -19,10 +19,8 @@ export default function ProfileContent({
               value && (
                 <div>
                   <a href={value} target="_blank" rel="noreferrer">
-                    <img />
                     {key}
                   </a>
-                  {/* <label>{value}</label> */}
                 </div>
               )
           )}
