@@ -1,4 +1,12 @@
 .Roster {
+  .slidingUnderline {
+    width: 0px;
+    height: 6px;
+    background-color: #d79e00;
+    margin-top: 20px;
+    transition: all 0.25s;
+  }
+
   h1 {
     font-family: 'Helvetica Neue';
     font-style: normal;
@@ -37,11 +45,11 @@
     // text-decoration: underline;
     cursor: pointer;
     color: #d79e00;
-    padding: 60px 20px;
+    padding: 60px 40px;
+    border-left: 8px solid #d79e00;
   }
-}
 
-.SearchedList {
-  a {
+  li:hover > .slidingUnderline {
+    width: 400px;
   }
 }

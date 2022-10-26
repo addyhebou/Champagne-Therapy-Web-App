@@ -79,8 +79,15 @@ const SearchedList = ({ filteredWriters }) => {
   return (
     <ul className="SearchedList">
       {filteredWriters.map((writer) => (
-        <Link to={`/profile/${writer}`} style={{ textDecoration: 'none' }}>
-          <li>{writer}</li>
+        <Link
+          to={`/profile/${writer}`}
+          state={{ writer: writer }}
+          style={{ textDecoration: 'none' }}
+        >
+          <li>
+            {writer}
+            <div className="slidingUnderline"></div>
+          </li>
         </Link>
       ))}
     </ul>

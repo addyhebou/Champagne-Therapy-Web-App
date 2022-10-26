@@ -8,6 +8,7 @@ import '../Styles/Profile.scss';
 export default function Profile() {
   const location = useLocation();
   const { writer } = location.state;
+  console.log(writer);
   const data = writers[writer];
   console.log(data);
   return (

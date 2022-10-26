@@ -1,7 +1,8 @@
-import { React, myRef } from 'react';
+import { React, myRef, useState, useEffect } from 'react';
 import BlockSegment from './BlockSegment.js';
 import TextField from './TextField.js';
 import Playlists from '../Components/Playlists.js';
+import { writers } from '../Constants/writerMetadata.ts';
 
 export default function HomeContent({ scrollTarget }) {
   const jamSessionVideo =
@@ -10,6 +11,24 @@ export default function HomeContent({ scrollTarget }) {
     'https://storage.googleapis.com/champagne-media/CTMG%20Group.png';
   const lookingAtAwardsImg =
     'https://storage.googleapis.com/champagne-media/Looking%20At%20Awards.png';
+  const [searchedWriter, setSearchedWriter] = useState('');
+
+  useEffect(() => {
+    console.log(searchedWriter);
+  }, [searchedWriter]);
+
+  const searchWriters = (currentSearch) => {
+    setSearchedWriter(currentSearch);
+  };
+
+  const doesWriterMatchSearchName = (writer) => {
+    return writer.toLowerCase().includes(searchedWriter.toLowerCase());
+  };
+
+  const filteredWriters = Object.keys(writers).filter((writer) =>
+    doesWriterMatchSearchName(writer)
+  );
+
   return (
     <div ref={scrollTarget}>
       <BlockSegment
@@ -17,7 +36,15 @@ export default function HomeContent({ scrollTarget }) {
         header="ROSTER"
         route="/roster"
         description="The Champagne Music Therapy Group team includes a diverse array of songwriters, producers, and artists."
-        component={<TextField placeholder="Search our songwriters" />}
+        component={
+          <TextField
+            value={''}
+            placeholder="Search our songwriters"
+            smallResultsOn
+            onChange={searchWriters}
+            filteredList={filteredWriters}
+          />
+        }
         secondaryDescription="Or view our entire roster"
         buttonText="View All"
         secondaryComponent={null}
