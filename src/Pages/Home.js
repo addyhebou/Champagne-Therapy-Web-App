@@ -1,7 +1,7 @@
 import { React, useRef } from 'react';
-import Navbar from '../Components/Navbar';
 import VideoBanner from '../Components/VideoBanner';
 import HomeContent from '../Components/HomeContent';
+import Navbar from '../Components/Navbar';
 
 export default function Home() {
   const myRef = useRef(null);

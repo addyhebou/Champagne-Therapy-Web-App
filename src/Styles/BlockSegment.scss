@@ -40,9 +40,7 @@
       font-style: normal;
       font-weight: 700;
       font-size: 48px;
-      //   line-height: 59px;
       text-transform: uppercase;
-      /* identical to box height */
 
       color: #ffffff;
 
@@ -59,7 +57,7 @@
       font-size: 1.5em;
 
       color: #ffffff;
-      width: 822px;
+      width: min(64vw, 822px);
     }
   }
 }
@@ -68,10 +66,6 @@
   position: relative;
   margin-bottom: 120px;
   img {
-    // width: 525px;
-    // position: absolute;
-    // z-index: 1;
-    // margin-left: 0;
     width: 80%;
   }
   video {
