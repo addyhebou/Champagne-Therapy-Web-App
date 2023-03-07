@@ -2,10 +2,16 @@
   margin: 40px 0px;
   display: flex;
   flex-direction: row;
-  align-items: flex-start;
   padding: 0px;
   gap: 11px;
   justify-content: space-between;
+}
+
+.row {
+  align-items: flex-start;
+}
+.row-reverse {
+  align-items: flex-end;
 }
 
 .row {
@@ -33,13 +39,12 @@
 
 .textContent {
   .trapezoid {
-    padding: 10px;
     background-color: black;
     h1 {
       font-family: 'Helvetica Neue';
       font-style: normal;
       font-weight: 700;
-      font-size: 48px;
+      font-size: min(48px, 6vw);
       text-transform: uppercase;
 
       color: #ffffff;
@@ -62,6 +67,22 @@
   }
 }
 
+@media only screen and (max-width: 678px) {
+  .row,
+  .row-reverse {
+    flex-direction: column;
+  }
+  .trapezoid {
+    width: 90vw;
+    padding: 5px 0;
+  }
+}
+@media only screen and (min-width: 679px) {
+  .trapezoid {
+    padding: 10px;
+  }
+}
+
 .mediaContent {
   position: relative;
   margin-bottom: 120px;
@@ -74,6 +95,5 @@
     z-index: 2;
     bottom: -5%;
     left: -30%;
-    // transform: translate(0%, 0%);
   }
 }

@@ -13,10 +13,6 @@ export default function HomeContent({ scrollTarget }) {
     'https://storage.googleapis.com/champagne-media/Looking%20At%20Awards.png';
   const [searchedWriter, setSearchedWriter] = useState('');
 
-  useEffect(() => {
-    console.log(searchedWriter);
-  }, [searchedWriter]);
-
   const searchWriters = (currentSearch) => {
     setSearchedWriter(currentSearch);
   };

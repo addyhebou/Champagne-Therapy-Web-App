@@ -6,7 +6,7 @@ const textContent = (props) => {
   const orientation = props.orientation === 'left' ? 'leftAlign' : 'rightAlign';
   return (
     <div className={`textContent ${orientation}`}>
-      {/* <div
+      <div
         className={`trapezoid ${
           props.orientation === 'left'
             ? 'borderRadiusLeft'
@@ -14,14 +14,14 @@ const textContent = (props) => {
         }`}
       >
         <h1>{props.header}</h1>
-      </div> */}
-      {/* <div className="nestedContent">
+      </div>
+      <div className="nestedContent">
         <p>{props.description}</p>
         {props.component}
         <p>{props.secondaryDescription}</p>
         <Button text={props.buttonText} link={props.route} />
         {props.secondaryComponent}
-      </div> */}
+      </div>
     </div>
   );
 };
@@ -36,6 +36,7 @@ const mediaContent = (imageURL, videoURL, imageDescription) => {
     </div>
   );
 };
+
 export default function BlockSegment(props) {
   const orientation = props.orientation === 'left' ? 'row' : 'row-reverse';
   return (

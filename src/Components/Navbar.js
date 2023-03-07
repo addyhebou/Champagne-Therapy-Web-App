@@ -4,6 +4,7 @@ import Logo from '../Assets/Logo.png';
 import NavLinks from './NavLinks';
 import { Link } from 'react-router-dom';
 import { useState } from 'react';
+import '../Styles/Menu.scss';
 
 export default function Navbar() {
   const links = ['Roster', 'Discography', 'About', 'Contact'];
@@ -20,8 +21,9 @@ export default function Navbar() {
 
 const Menu = () => {
   const [clicked, setClicked] = useState(false);
+  const styles = clicked ? 'open' : 'closed';
   return (
-    <div className="nav-icon1">
+    <div className={`Menu ${styles}`} onClick={() => setClicked(!clicked)}>
       <span></span>
       <span></span>
       <span></span>

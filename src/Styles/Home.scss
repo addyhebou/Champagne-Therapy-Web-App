@@ -1,0 +1,18 @@
+@media only screen and (max-width: 678px) {
+  .placeholder {
+    display: block;
+    color: white;
+  }
+  .DesktopView {
+    display: none;
+  }
+}
+
+@media only screen and (min-width: 679px) {
+  .placeholder {
+    display: none;
+  }
+  .DesktopView {
+    display: block;
+  }
+}
