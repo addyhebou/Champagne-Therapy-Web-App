@@ -1,4 +1,5 @@
-import { RosterMember } from './types';
+import { getNewReleaseDescription } from '../Utils/copy';
+import { NewRelease, RosterMember } from './types';
 
 export const CHAMPAGNE_LOGO_URL =
   'https://storage.googleapis.com/champagne-media/Logo.png';
@@ -68,5 +69,24 @@ export const ROSTER_LIST: RosterMember[] = [
     name: 'Saint Steph',
     imageURL:
       'https://storage.googleapis.com/champagne-media/Saint%20Steph%20Profile.png',
+  },
+];
+
+export const NEWS_ALERTS: NewRelease[] = [
+  {
+    artworkURL:
+      'https://i.scdn.co/image/ab67616d0000b2731ac10fa053459ec474114974',
+    title: 'RHS',
+    description: getNewReleaseDescription('Amanda Rose'),
+    buttonText: 'Check it out',
+    redirectURL: 'https://open.spotify.com/track/7GyX0eWAKhW3MJyJhUIqcP',
+  },
+  {
+    artworkURL:
+      'https://i.scdn.co/image/ab67616d00001e02d8d1889ff7ff9491fb330d0a',
+    title: 'Monster Truck',
+    description: getNewReleaseDescription('Gabi Sklar'),
+    buttonText: 'Check it out',
+    redirectURL: 'https://open.spotify.com/track/7xbES0Q8dhPCTyjXOgThXf',
   },
 ];

@@ -16,3 +16,11 @@ export type SocialMediaPlatform =
   | 'Spotify'
   | 'Apple Music'
   | 'YouTube';
+
+export interface NewRelease {
+  artworkURL: string;
+  title: string;
+  description: string;
+  buttonText: string;
+  redirectURL: string;
+}
