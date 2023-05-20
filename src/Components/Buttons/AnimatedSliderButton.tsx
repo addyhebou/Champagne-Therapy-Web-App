@@ -1,10 +1,13 @@
-import { React } from 'react';
 import '../../Styles/AnimatedSliderButton.scss';
 import PlayArrowIcon from '@mui/icons-material/PlayArrow';
-import { Link } from 'react-router-dom';
 
-export default function AnimatedSliderButton({ text, width, link }) {
-  const openInNewTab = (link) => {
+interface Props {
+  text: string;
+  link: string;
+}
+
+export default function AnimatedSliderButton({ text, link }: Props) {
+  const openInNewTab = (link: string) => {
     window.open(link, '_blank', 'noopener,noreferrer');
   };
   return (

@@ -1,17 +1,17 @@
 import React from 'react';
 import '../Styles/Navbar.scss';
-import Logo from '../Assets/Logo.png';
 import NavLinks from './NavLinks';
 import { Link } from 'react-router-dom';
 import { useState } from 'react';
 import '../Styles/Menu.scss';
+import { CHAMPAGNE_LOGO_URL } from '../Constants/media';
+import { links } from '../Constants/constants';
 
 export default function Navbar() {
-  const links = ['Roster', 'Discography', 'About', 'Contact'];
   return (
     <div className="Navbar">
       <Link to="/">
-        <img className="Logo" src={Logo} alt="Logo" />
+        <img className="Logo" src={CHAMPAGNE_LOGO_URL} alt="Logo" />
       </Link>
       <NavLinks links={links} />
       <Menu />

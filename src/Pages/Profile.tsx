@@ -1,16 +1,14 @@
 import React from 'react';
 import { useLocation } from 'react-router-dom';
 import Navbar from '../Components/Navbar';
-import { writers } from '../Constants/writerMetadata.ts';
+import { writers } from '../Constants/writerMetadata';
 import ProfileContent from '../Components/ProfileContent';
 import '../Styles/Profile.scss';
 
 export default function Profile() {
   const location = useLocation();
   const { writer } = location.state;
-  console.log(writer);
   const data = writers[writer];
-  console.log(data);
   return (
     <div className="Profile">
       <Navbar />

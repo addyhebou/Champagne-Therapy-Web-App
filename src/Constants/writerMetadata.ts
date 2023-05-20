@@ -1,12 +1,6 @@
-export interface Writer {
-  name: string;
-  imageURL: string;
-  biography: string;
-  bigImageURL: string;
-  socials?: Object;
-}
+import { Writer } from './types';
 
-export const writers = {
+export const writers: Record<string, Writer> = {
   'Tommy Brown': {
     name: 'Tommy Brown',
     imageURL:
@@ -39,8 +33,8 @@ export const writers = {
       YouTube: '',
     },
   },
-  'Saint Steph': {},
-  '3-60': {},
-  'Melanie Joy Fontana': {},
-  'Travis Sayles': {},
+  // 'Saint Steph': {},
+  // '3-60': {},
+  // 'Melanie Joy Fontana': {},
+  // 'Travis Sayles': {},
 };
