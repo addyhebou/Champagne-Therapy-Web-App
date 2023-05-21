@@ -4,11 +4,12 @@ import HomeContent from '../Components/HomeContent';
 import Navbar from '../Components/Navbar';
 import '../Styles/Home.scss';
 import { Button, ButtonProps, Radio } from '@mui/material';
-import { NewsAlert } from '../Components/NewsAlert';
+import { AlertModal } from '../Components/AlertModal';
 import { useEffect } from 'react';
-import { NewsAlertButtonStyles } from '../Styles/NewsAlertStyles';
+import { AlertModalButtonStyles } from '../Styles/AlertModalStyles';
 import styled from '@emotion/styled';
 import { NEWS_ALERTS } from '../Constants/media';
+import { ModalTypes } from '../Constants/types';
 
 export default function Home() {
   const [open, setOpen] = useState(false);
@@ -25,12 +26,12 @@ export default function Home() {
   }, []);
   return (
     <div className="Home">
-      <NewsAlert
+      <AlertModal
         releaseInformation={NEWS_ALERTS}
         open={open}
         handleClose={handleClose}
+        type={ModalTypes.NEWS_ALERT}
       />
-      <Navbar />
       <div className="DesktopView">
         <VideoBanner />
         <HomeContent />

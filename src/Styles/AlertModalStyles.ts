@@ -1,34 +1,7 @@
-import { css } from '@emotion/react';
+import { css } from '@emotion/css';
 import { Colors } from './variables';
 
-export const NewsAlertButtonStyles = css({
-  display: 'flex',
-  flexDirection: 'row',
-  alignItems: 'flexStart',
-  padding: '18px 45px',
-  gap: ' 10px',
-
-  width: '254px',
-  height: '60px',
-
-  background: '#C0013D',
-  borderRadius: '72px',
-
-  // Font Styles
-  fontFamily: 'Inter',
-  fontStyle: 'normal',
-  fontWeight: '700',
-  fontSize: '1.125em',
-  letterSpacing: '0.095em',
-  textTransform: 'uppercase',
-  color: Colors.WHITE,
-
-  '&:hover': {
-    background: '#C0013D',
-  },
-});
-
-export const NewsAlertModalStyles = css({
+export const AlertModalModalStyles = css({
   display: 'flex',
   flexDirection: 'row',
   alignItems: 'center',

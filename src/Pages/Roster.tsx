@@ -24,7 +24,6 @@ export default function Roster() {
 
   return (
     <div className="Roster">
-      <Navbar />
       <h1>OUR ROSTER</h1>
       <TextField
         value={searchedWriter}
