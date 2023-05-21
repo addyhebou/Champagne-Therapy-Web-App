@@ -36,21 +36,31 @@ export const Contact = () => {
       </div>
       <form onSubmit={(e) => handleSubmit(e)}>
         <div className={contactFormClassname}>
-          <FormTextField
-            id="outlined-basic"
-            label="Your Name"
-            placeholder="Anakin Skywalker"
-            className={textFieldClassname}
-            style={{ width: '47%' }}
-            autoFocus
-          />
-          <FormTextField
-            id="outlined-basic"
-            label="Your Email"
-            placeholder="anakin@empire.gov"
-            style={{ width: '47%' }}
-            className={textFieldClassname}
-          />
+          <div
+            style={{
+              display: 'flex',
+              justifyContent: 'space-between',
+              width: '100%',
+              gap: '10px',
+              alignItems: 'center',
+            }}
+          >
+            <FormTextField
+              id="outlined-basic"
+              label="Your Name"
+              placeholder="Anakin Skywalker"
+              className={textFieldClassname}
+              style={{ width: '100%' }}
+              autoFocus
+            />
+            <FormTextField
+              id="outlined-basic"
+              label="Your Email"
+              placeholder="anakin@empire.gov"
+              style={{ width: '100%' }}
+              className={textFieldClassname}
+            />
+          </div>
           <FormTextField
             id="outlined-basic"
             label="What Are You Interested In"

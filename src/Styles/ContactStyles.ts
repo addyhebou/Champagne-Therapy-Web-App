@@ -18,7 +18,7 @@ export const contactHeaderClassname = css({
     fontFamily: 'Helvetica Neue',
     fontStyle: 'normal',
     fontWeight: '500',
-    fontSize: '3.5em',
+    fontSize: 'min(3.5em, 10vw)',
     color: Colors.WHITE,
     marginBlock: '0',
   },

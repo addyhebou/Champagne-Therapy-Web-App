@@ -18,7 +18,7 @@ export const FormButton = ({ text, color = 'primary', onClick }: Props) => {
         style={{
           marginBlock: '1em',
           color: Colors.WHITE,
-          width: 'min(200px, 20vw)',
+          width: 'min(200px, 100%)',
         }}
         type="submit"
         onClick={onClick}

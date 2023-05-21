@@ -1,13 +1,9 @@
-import { useRef, useState } from 'react';
+import { useState } from 'react';
 import VideoBanner from '../Components/VideoBanner';
 import HomeContent from '../Components/HomeContent';
-import Navbar from '../Components/Navbar';
 import '../Styles/Home.scss';
-import { Button, ButtonProps, Radio } from '@mui/material';
 import { AlertModal } from '../Components/AlertModal';
 import { useEffect } from 'react';
-import { AlertModalButtonStyles } from '../Styles/AlertModalStyles';
-import styled from '@emotion/styled';
 import { NEWS_ALERTS } from '../Constants/media';
 import { ModalTypes } from '../Constants/types';
 
