@@ -12,7 +12,7 @@ export const AlertModalModalStyles = css({
   padding: '2em 1em',
   width: '395px',
   height: 'min(60vh, 634px)',
-  background: 'linear-gradient(180deg, #D78FA5 0%, #FF578A 100%)',
+  background: Colors.CHAMPAGNE_GOLD,
   borderRadius: '29px',
   '.contentAndFooter': {
     display: 'flex',
@@ -61,4 +61,16 @@ export const AlertModalModalStyles = css({
       justifyContent: 'center',
     },
   },
+});
+
+export const modalTitleClassname = css({
+  position: 'absolute' as 'absolute',
+  top: '-10%',
+  left: '50%',
+  transform: 'translate(-50%, -50%)',
+  color: Colors.WHITE,
+  letterSpacing: '0.17em',
+  width: '100%',
+  textAlign: 'center',
+  textTransform: 'uppercase',
 });

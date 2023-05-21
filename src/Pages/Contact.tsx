@@ -29,6 +29,7 @@ export const Contact = () => {
         description={"We'll get in touch with you as soon as possible"}
         buttonText={'Close'}
         artworkURL={EMAIL_CLIP_ART_URL}
+        type={ModalTypes.EMAIL}
       />
       <div className={contactHeaderClassname}>
         <h1>Love to hear from you,</h1>
