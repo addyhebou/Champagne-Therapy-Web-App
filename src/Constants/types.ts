@@ -24,3 +24,5 @@ export interface NewRelease {
   buttonText: string;
   redirectURL: string;
 }
+
+export type RGB = number[];

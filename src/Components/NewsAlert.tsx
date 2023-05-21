@@ -8,7 +8,7 @@ import {
   styled,
 } from '@mui/material';
 import React from 'react';
-import { NewRelease } from '../Constants/types';
+import { NewRelease, RGB } from '../Constants/types';
 import {
   NewsAlertButtonStyles,
   NewsAlertModalStyles,
@@ -16,7 +16,10 @@ import {
 import ArrowForwardIosIcon from '@mui/icons-material/ArrowForwardIos';
 import ArrowBackIosIcon from '@mui/icons-material/ArrowBackIos';
 import { useState } from 'react';
-import ColorThief from '../../node_modules/colorthief/dist/color-thief.mjs';
+import { useEffect } from 'react';
+import { getColor, getColorFromURL, getPaletteFromURL } from 'color-thief-node';
+import { NEWS_ALERTS, ROSTER_LIST } from '../Constants/media';
+import { rgbToHex } from '../Utils/utils';
 
 interface Props {
   releaseInformation: NewRelease[];
@@ -25,7 +28,26 @@ interface Props {
 }
 
 export const NewsAlert = ({ releaseInformation, open, handleClose }: Props) => {
-  const [step, setStep] = useState(0);
+  const [step, setStep] = useState<number>(0);
+  const [dominantColor, setDominantColor] = useState<RGB>([]);
+  const [mainColor, setMainColor] = useState<string>('');
+
+  useEffect(() => {
+    async function fetchColor() {
+      const imageUrl = ROSTER_LIST[0].imageURL;
+
+      const googleProxyURL =
+        'https://images1-focus-opensocial.googleusercontent.com/gadgets/proxy?container=focus&refresh=2592000&url=';
+      const image = new Image();
+      const proxyURL = googleProxyURL + encodeURIComponent(imageUrl);
+      // console.log({ proxyURL });
+      image.src = proxyURL;
+      const mainColor = rgbToHex(getColor(image));
+      console.log({ mainColor });
+      // setMainColor(mainColor);
+    }
+    fetchColor();
+  }, []);
 
   const NewsAlertButton = styled(Button)<ButtonProps>(
     () => NewsAlertButtonStyles
