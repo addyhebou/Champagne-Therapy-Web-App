@@ -6,6 +6,7 @@ import Profile from './Pages/Profile';
 import './App.scss';
 import { Contact } from './Pages/Contact';
 import Navbar from './Components/Navbar';
+import { Discography } from './Pages/Discography';
 
 function App() {
   return (
@@ -13,6 +14,7 @@ function App() {
       <Navbar />
       <Routes>
         <Route path="/" element={<Home />} />
+        <Route path="/discography" element={<Discography />} />
         <Route path="/roster" element={<Roster />} />
         <Route path="/profile/:writer" element={<Profile />} />
         <Route path="/contact" element={<Contact />} />

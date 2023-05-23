@@ -10,6 +10,7 @@ import { FormButton } from '../Components/Buttons/FormButton';
 import { AlertModal } from '../Components/AlertModal';
 import { EMAIL_CLIP_ART_URL, NEWS_ALERTS } from '../Constants/media';
 import { ModalTypes } from '../Constants/types';
+import { PageHeader } from '../Components/Headers/PageHeader';
 
 export const Contact = () => {
   const [open, setOpen] = useState(false);
@@ -32,8 +33,8 @@ export const Contact = () => {
         type={ModalTypes.EMAIL}
       />
       <div className={contactHeaderClassname}>
-        <h1>Love to hear from you,</h1>
-        <h1>Get in touch 🥂</h1>
+        <PageHeader text={'Love to hear from you,'} />
+        <PageHeader text={'Get in touch 🥂'} />
       </div>
       <form onSubmit={(e) => handleSubmit(e)}>
         <div className={contactFormClassname}>

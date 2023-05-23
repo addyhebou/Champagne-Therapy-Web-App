@@ -20,7 +20,8 @@ export const contactHeaderClassname = css({
     fontWeight: '500',
     fontSize: 'min(3.5em, 10vw)',
     color: Colors.WHITE,
-    marginBlock: '0',
+    marginBlock: '10px',
+    textTransform: 'none',
   },
 });
 

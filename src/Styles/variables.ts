@@ -5,6 +5,19 @@ export const Colors = {
   CHAMPAGNE_GOLD: '#d79e00',
 };
 
+export const Text = {
+  header: {
+    fontFamily: 'Helvetica Neue',
+    fontStyle: 'normal',
+    fontWeight: '700',
+    fontSize: '48px',
+    lineHeight: '59px',
+    letterSpacing: '0',
+    color: Colors.WHITE,
+    textTransform: 'uppercase' as const,
+  },
+};
+
 export const theme = createTheme({
   palette: {
     primary: {

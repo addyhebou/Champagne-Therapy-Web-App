@@ -6,6 +6,7 @@ import '../Styles/Roster.scss';
 import { writers } from '../Constants/writerMetadata';
 import { Link } from 'react-router-dom';
 import { ROSTER_LIST } from '../Constants/media';
+import { PageHeader } from '../Components/Headers/PageHeader';
 
 export default function Roster() {
   const [searchedWriter, setSearchedWriter] = useState('');
@@ -24,7 +25,7 @@ export default function Roster() {
 
   return (
     <div className="Roster">
-      <h1>OUR ROSTER</h1>
+      <PageHeader text={'Our Roster'} letterSpacing />
       <TextField
         value={searchedWriter}
         placeholder={'Search our songwriters'}
