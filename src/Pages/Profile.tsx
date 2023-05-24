@@ -1,10 +1,8 @@
 import React from 'react';
 import { useLocation } from 'react-router-dom';
-import Navbar from '../Components/Navbar';
 import { WRITERS } from '../Constants/writerMetadata';
 import ProfileContent from '../Components/ProfileContent';
 import '../Styles/Profile.scss';
-import { RosterMember } from '../Constants/types';
 
 export default function Profile() {
   const location = useLocation();

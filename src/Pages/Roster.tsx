@@ -1,5 +1,4 @@
-import { useEffect, useState } from 'react';
-import Navbar from '../Components/Navbar';
+import { useState } from 'react';
 import TextField from '../Components/TextField';
 import ImageGallery from '../Components/ImageGallery';
 import '../Styles/Roster.scss';

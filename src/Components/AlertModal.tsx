@@ -1,12 +1,4 @@
-import {
-  Box,
-  Button,
-  ButtonProps,
-  Fade,
-  Modal,
-  Radio,
-  styled,
-} from '@mui/material';
+import { Box, Button, ButtonProps, Fade, Modal, styled } from '@mui/material';
 import React from 'react';
 import { ModalType, ModalTypes, NewRelease } from '../Constants/types';
 import {

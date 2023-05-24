@@ -1,4 +1,4 @@
-import React, { useReducer, useState } from 'react';
+import React, { useState } from 'react';
 import {
   contactFormClassname,
   contactHeaderClassname,
@@ -8,7 +8,7 @@ import {
 import { FormTextField } from '../Components/FormTextField';
 import { FormButton } from '../Components/Buttons/FormButton';
 import { AlertModal } from '../Components/AlertModal';
-import { EMAIL_CLIP_ART_URL, NEWS_ALERTS } from '../Constants/media';
+import { EMAIL_CLIP_ART_URL } from '../Constants/media';
 import { ModalTypes } from '../Constants/types';
 import { PageHeader } from '../Components/Headers/PageHeader';
 
@@ -20,8 +20,6 @@ export const Contact = () => {
     e.preventDefault();
     handleOpen();
   };
-
-  // const [state, dispatch] = useReducer(first, second, third);
 
   return (
     <div className={contactPageClassname}>

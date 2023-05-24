@@ -1,7 +1,6 @@
 import React from 'react';
 import { Link } from 'react-router-dom';
 import '../Styles/GroupGallery.scss';
-import { ORIENTATIONS } from '../Constants/constants';
 
 interface Props {
   images: React.ReactNode[];

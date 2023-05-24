@@ -2,7 +2,6 @@ import React, { useState } from 'react';
 import { PageHeader } from '../Components/Headers/PageHeader';
 import TextField from '../Components/TextField';
 import { discographyClassname } from '../Styles/DiscographyStyles';
-import { DISCOGRAPHY } from '../Constants/discography';
 import { AlbumArtworkPane } from '../Components/AlbumArtworkPane';
 
 export const Discography = () => {
