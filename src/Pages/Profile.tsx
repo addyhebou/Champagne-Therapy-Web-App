@@ -14,7 +14,6 @@ export default function Profile() {
     name: string
   ): string | undefined => {
     return Object.entries(WRITERS).find((writer) => {
-      console.log({ writer });
       return writer[1].name.toLowerCase().includes(name.toLowerCase());
     })?.[0];
   };

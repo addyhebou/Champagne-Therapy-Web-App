@@ -19,8 +19,6 @@ export const AlbumArtworkPane = ({ searchTerm }: { searchTerm: string }) => {
   };
 
   const doesArrayContainSearchTerm = (arr: Producer[] | Writer[]) => {
-    console.log({ arr });
-    console.log({ searchTerm });
     return arr.some((writer) =>
       writer.name.toLowerCase().includes(searchTerm.toLowerCase())
     );
