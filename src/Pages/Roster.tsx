@@ -3,7 +3,7 @@ import Navbar from '../Components/Navbar';
 import TextField from '../Components/TextField';
 import ImageGallery from '../Components/ImageGallery';
 import '../Styles/Roster.scss';
-import { writers } from '../Constants/writerMetadata';
+import { WRITERS } from '../Constants/writerMetadata';
 import { Link } from 'react-router-dom';
 import { ROSTER_LIST } from '../Constants/media';
 import { PageHeader } from '../Components/Headers/PageHeader';
@@ -16,7 +16,7 @@ export default function Roster() {
     setSearchedWriter(currentSearch);
   };
 
-  const filteredWriters = Object.keys(writers).filter((writer) =>
+  const filteredWriters = Object.keys(WRITERS).filter((writer) =>
     doesWriterMatchSearchName(writer, searchedWriter)
   );
 

@@ -12,7 +12,7 @@ export const Discography = () => {
       <PageHeader text={'Discography'} />
       <TextField
         value={search}
-        placeholder={'Search artists, songs, or albums'}
+        placeholder={'Search artists, songs, albums, songwriters, or producers'}
         size={'long'}
         onChange={setSearch}
       />

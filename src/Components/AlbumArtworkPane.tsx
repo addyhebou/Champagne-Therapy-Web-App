@@ -19,7 +19,11 @@ export const AlbumArtworkPane = ({ searchTerm }: { searchTerm: string }) => {
   };
 
   const doesArrayContainSearchTerm = (arr: Producer[] | Writer[]) => {
-    return arr.some((writer) => writer.name.toLowerCase() === searchTerm);
+    console.log({ arr });
+    console.log({ searchTerm });
+    return arr.some((writer) =>
+      writer.name.toLowerCase().includes(searchTerm.toLowerCase())
+    );
   };
 
   const doesRecordMatchSearch = (record: Record) =>
