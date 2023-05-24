@@ -3,9 +3,7 @@ export interface RosterMember {
   imageURL: string;
 }
 
-export interface Writer {
-  name: string;
-  imageURL: string;
+export interface Writer extends RosterMember {
   biography: string;
   bigImageURL: string;
   socials: Record<SocialMediaPlatform, string>;

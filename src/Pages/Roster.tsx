@@ -25,7 +25,7 @@ export default function Roster() {
 
   return (
     <div className="Roster">
-      <PageHeader text={'Our Roster'} letterSpacing />
+      <PageHeader text={'Our Roster'} />
       <TextField
         value={searchedWriter}
         placeholder={'Search our songwriters'}

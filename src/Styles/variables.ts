@@ -10,7 +10,7 @@ export const Text = {
     fontFamily: 'Helvetica Neue',
     fontStyle: 'normal',
     fontWeight: '700',
-    fontSize: '48px',
+    fontSize: 'min(48px, 10vw)',
     lineHeight: '59px',
     letterSpacing: '0',
     color: Colors.WHITE,
@@ -28,3 +28,8 @@ export const theme = createTheme({
     },
   },
 });
+
+export const TextFieldSizes = {
+  SHORT: 'short',
+  LONG: 'long',
+};
