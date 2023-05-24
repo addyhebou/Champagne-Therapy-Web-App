@@ -9,6 +9,8 @@ export interface Writer extends RosterMember {
   socials: Record<SocialMediaPlatform, string>;
 }
 
+export interface Producer extends Writer {}
+
 export type SocialMediaPlatform =
   | 'Tik Tok'
   | 'Spotify'

@@ -14,7 +14,6 @@ export default function ProfileContent({
   biography,
   socialURLs,
 }: Props) {
-  const demo = '';
   return (
     <div className="ProfileContent">
       <div className="text">

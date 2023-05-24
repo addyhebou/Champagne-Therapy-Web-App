@@ -3,6 +3,7 @@ import { createTheme } from '@mui/material';
 export const Colors = {
   WHITE: '#fff',
   CHAMPAGNE_GOLD: '#d79e00',
+  BLACK: '#000',
 };
 
 export const Text = {

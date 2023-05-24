@@ -1,4 +1,4 @@
-import { Writer } from './types';
+import { Producer, Writer } from './types';
 import { WRITERS } from './writerMetadata';
 
 export const Genres = {
@@ -6,8 +6,6 @@ export const Genres = {
   HIPHOP: 'hip-hop',
   RNB: 'r&b',
 };
-
-export interface Producer extends Writer {}
 
 export interface Record {
   title: string;

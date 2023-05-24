@@ -1,11 +1,11 @@
 import { ImageList, ImageListItem } from '@mui/material';
 import React from 'react';
-import { DISCOGRAPHY, Producer, Record } from '../Constants/discography';
+import { DISCOGRAPHY, Record } from '../Constants/discography';
 import {
   albumArtworkPaneClassname,
   albumArtworkPaneItemClassname,
 } from '../Styles/AlbumArtworkPaneStyles';
-import { Writer } from '../Constants/types';
+import { Producer, Writer } from '../Constants/types';
 import { doesWriterMatchSearchName } from '../Utils/functions';
 
 export const AlbumArtworkPane = ({ searchTerm }: { searchTerm: string }) => {

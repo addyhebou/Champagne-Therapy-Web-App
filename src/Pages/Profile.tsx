@@ -4,14 +4,26 @@ import Navbar from '../Components/Navbar';
 import { WRITERS } from '../Constants/writerMetadata';
 import ProfileContent from '../Components/ProfileContent';
 import '../Styles/Profile.scss';
+import { RosterMember } from '../Constants/types';
 
 export default function Profile() {
   const location = useLocation();
   const { writer } = location.state;
-  const data = WRITERS[writer];
+
+  const findTheWriterObjectWithWriterName = (
+    name: string
+  ): string | undefined => {
+    return Object.entries(WRITERS).find((writer) => {
+      console.log({ writer });
+      return writer[1].name.toLowerCase().includes(name.toLowerCase());
+    })?.[0];
+  };
+
+  const writerObject = findTheWriterObjectWithWriterName(writer);
+  if (!writerObject) return <></>;
+  const data = WRITERS[writerObject];
   return (
     <div className="Profile">
-      <Navbar />
       <ProfileContent
         name={data.name}
         imageURL={data.bigImageURL}
