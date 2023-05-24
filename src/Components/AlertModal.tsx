@@ -17,7 +17,7 @@ import ArrowForwardIosIcon from '@mui/icons-material/ArrowForwardIos';
 import ArrowBackIosIcon from '@mui/icons-material/ArrowBackIos';
 import { useState } from 'react';
 import { AlertModalButtonStyles } from '../Styles/AlertModalButtonStyles';
-import { Colors } from '../Styles/variables';
+import { Colors, Gradients } from '../Styles/variables';
 
 interface Props {
   open: boolean;
@@ -77,14 +77,12 @@ export const AlertModal = ({
         <Fade in={open}>
           <Box
             className={AlertModalModalStyles}
-            style={
-              type === ModalTypes.NEWS_ALERT
-                ? {
-                    background:
-                      'linear-gradient(180deg, #D78FA5 0%, #FF578A 100%)',
-                  }
-                : {}
-            }
+            style={{
+              background:
+                type === ModalTypes.NEWS_ALERT
+                  ? 'linear-gradient(180deg, #D78FA5 0%, #FF578A 100%)'
+                  : Gradients.CHAMPAGNE_GOLD,
+            }}
           >
             <h1 className={modalTitleClassname}>{getModalTitle(type)}</h1>
             {type === ModalTypes.NEWS_ALERT && (
@@ -113,13 +111,10 @@ export const AlertModal = ({
                 <AlertModalButton
                   variant="contained"
                   onClick={handleAction}
-                  style={
-                    type === ModalTypes.NEWS_ALERT
-                      ? {
-                          background: '#C0013D',
-                        }
-                      : {}
-                  }
+                  style={{
+                    background:
+                      type === ModalTypes.NEWS_ALERT ? '#C0013D' : Colors.BLACK,
+                  }}
                 >
                   {release?.buttonText ?? buttonText}
                 </AlertModalButton>

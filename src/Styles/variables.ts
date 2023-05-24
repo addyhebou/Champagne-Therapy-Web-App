@@ -41,3 +41,8 @@ export const TextFieldSizes = {
   SHORT: 'short',
   LONG: 'long',
 };
+
+export const Gradients = {
+  CHAMPAGNE_GOLD: 'linear-gradient(180deg, #FFF0C5 0%, #B4943D 100%)',
+  GREY: 'linear-gradient(180deg, #111111 0%, #474747 100%)',
+};

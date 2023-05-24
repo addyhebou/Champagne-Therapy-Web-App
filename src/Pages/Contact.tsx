@@ -1,4 +1,4 @@
-import React, { useState } from 'react';
+import React, { useReducer, useState } from 'react';
 import {
   contactFormClassname,
   contactHeaderClassname,
@@ -20,6 +20,8 @@ export const Contact = () => {
     e.preventDefault();
     handleOpen();
   };
+
+  // const [state, dispatch] = useReducer(first, second, third);
 
   return (
     <div className={contactPageClassname}>
