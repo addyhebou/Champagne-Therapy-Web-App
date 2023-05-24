@@ -16,7 +16,7 @@ export const Discography = () => {
         size={'long'}
         onChange={setSearch}
       />
-      <AlbumArtworkPane />
+      <AlbumArtworkPane searchTerm={search} />
     </div>
   );
 };

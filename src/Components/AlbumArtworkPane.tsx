@@ -1,31 +1,54 @@
 import { ImageList, ImageListItem } from '@mui/material';
 import React from 'react';
-import { DISCOGRAPHY } from '../Constants/discography';
+import { DISCOGRAPHY, Producer, Record } from '../Constants/discography';
+import {
+  albumArtworkPaneClassname,
+  albumArtworkPaneItemClassname,
+} from '../Styles/AlbumArtworkPaneStyles';
+import { Writer } from '../Constants/types';
+import { doesWriterMatchSearchName } from '../Utils/functions';
 
-export const AlbumArtworkPane = () => {
-  function srcset(image: string, size: number, rows = 1, cols = 1) {
+export const AlbumArtworkPane = ({ searchTerm }: { searchTerm: string }) => {
+  const srcset = (image: string, size: number, rows = 1, cols = 1) => {
     return {
       src: `${image}?w=${size * cols}&h=${size * rows}&fit=crop&auto=format`,
       srcSet: `${image}?w=${size * cols}&h=${
         size * rows
       }&fit=crop&auto=format&dpr=2 2x`,
     };
-  }
+  };
+
+  const doesArrayContainSearchTerm = (arr: Producer[] | Writer[]) => {
+    return arr.some((writer) => writer.name.toLowerCase() === searchTerm);
+  };
+
+  const doesRecordMatchSearch = (record: Record) =>
+    Object.values(record).some((value) =>
+      typeof value === 'string'
+        ? doesWriterMatchSearchName(value, searchTerm)
+        : doesArrayContainSearchTerm(value)
+    );
+
+  const filteredWriters = () =>
+    !!searchTerm
+      ? DISCOGRAPHY.filter((record) => doesRecordMatchSearch(record))
+      : DISCOGRAPHY;
+
   return (
     <ImageList
-      sx={{ width: '85vw', marginBlockStart: '2em' }}
       variant="quilted"
       cols={8}
       gap={20}
+      className={albumArtworkPaneClassname}
     >
-      {DISCOGRAPHY.map((item, i) => {
+      {filteredWriters().map((item, i) => {
         const colRowSize = i % 3 === 0 ? 2 : 1;
         return (
           <ImageListItem
-            key={item.img}
+            key={i}
             cols={colRowSize}
             rows={colRowSize}
-            sx={{ border: '2px solid white' }}
+            className={albumArtworkPaneItemClassname}
           >
             <img
               {...srcset(item.img, 121, colRowSize, colRowSize)}

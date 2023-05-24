@@ -7,6 +7,7 @@ import { writers } from '../Constants/writerMetadata';
 import { Link } from 'react-router-dom';
 import { ROSTER_LIST } from '../Constants/media';
 import { PageHeader } from '../Components/Headers/PageHeader';
+import { doesWriterMatchSearchName } from '../Utils/functions';
 
 export default function Roster() {
   const [searchedWriter, setSearchedWriter] = useState('');
@@ -15,12 +16,8 @@ export default function Roster() {
     setSearchedWriter(currentSearch);
   };
 
-  const doesWriterMatchSearchName = (writer: string) => {
-    return writer.toLowerCase().includes(searchedWriter.toLowerCase());
-  };
-
   const filteredWriters = Object.keys(writers).filter((writer) =>
-    doesWriterMatchSearchName(writer)
+    doesWriterMatchSearchName(writer, searchedWriter)
   );
 
   return (
