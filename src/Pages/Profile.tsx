@@ -2,7 +2,6 @@ import React from 'react';
 import { useLocation } from 'react-router-dom';
 import { WRITERS } from '../Constants/writerMetadata';
 import ProfileContent from '../Components/ProfileContent';
-import '../Styles/Profile.scss';
 
 export default function Profile() {
   const location = useLocation();
