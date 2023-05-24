@@ -7,6 +7,7 @@ import './App.scss';
 import { Contact } from './Pages/Contact';
 import Navbar from './Components/Navbar';
 import { Discography } from './Pages/Discography';
+import { About } from './Pages/About';
 
 function App() {
   return (
@@ -18,6 +19,7 @@ function App() {
         <Route path="/roster" element={<Roster />} />
         <Route path="/profile/:writer" element={<Profile />} />
         <Route path="/contact" element={<Contact />} />
+        <Route path="/about" element={<About />} />
       </Routes>
     </div>
   );

@@ -16,6 +16,13 @@ export const Text = {
     color: Colors.WHITE,
     textTransform: 'uppercase' as const,
   },
+  paragraph: {
+    fontFamily: 'Helvetica Neue',
+    fontStyle: 'normal',
+    fontWeight: '200',
+    fontSize: 'min(1.375em, 5vw)',
+    color: Colors.WHITE,
+  },
 };
 
 export const theme = createTheme({
