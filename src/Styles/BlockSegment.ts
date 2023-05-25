@@ -1,28 +1,24 @@
 import { css } from '@emotion/css';
 import { Colors, Text } from './variables';
 
-export const blockSegmentClassname = {
+export const blockSegmentClassname = css({
   margin: '40px 0',
   display: 'flex',
   flexDirection: 'row' as const,
   padding: '0',
   gap: '11px',
   justifyContent: 'space-between',
-  alignItems: '',
-};
+});
 
 export const textContentClassname = css({
   '.trapezoid': {
     backgroundColor: Colors.BLACK,
-    // TODO: Add the margin: 0 40px to h1
-    h1: Text.header,
+    h1: { ...Text.header, margin: '0 40px' },
     padding: '10px',
-    width: '90vw',
   },
   '.nestedContent': {
     margin: '0 60px',
-    // TODO: Add the width: min(64vw, 822px) to p
-    p: Text.paragraph,
+    p: { ...Text.paragraph, width: 'min(64vw, 822px' },
   },
 });
 
@@ -44,7 +40,6 @@ export const mediaContentClassname = css({
 // TODO: Find a way to modify the flexDirection in the blockSegmentClassname funciton – TS is tripping rn
 export const flexDirectionOverwrite = (orientation: 'row' | 'row-reverse') =>
   css({ flexDirection: orientation });
-
 export const textAlignOverwrite = (orientation: 'leftAlign' | 'rightAlign') =>
   css({ textAlign: orientation === 'leftAlign' ? 'left' : 'right' });
 
