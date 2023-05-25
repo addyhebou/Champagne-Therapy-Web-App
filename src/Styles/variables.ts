@@ -24,6 +24,14 @@ export const Text = {
     fontSize: 'min(1.375em, 5vw)',
     color: Colors.WHITE,
   },
+  buttonText: {
+    fontFamily: 'Helvetica Neue',
+    fontStyle: 'normal',
+    fontWeight: '700',
+    fontSize: 'min(18px, 10vw)',
+    color: Colors.WHITE,
+    textTransform: 'capitalize',
+  },
 };
 
 export const theme = createTheme({
