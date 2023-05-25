@@ -92,4 +92,4 @@ export const NEWS_ALERTS: NewRelease[] = [
 ];
 
 export const EMAIL_CLIP_ART_URL =
-  'https://png.pngtree.com/png-clipart/20191120/original/pngtree-email-icon-png-image_5065641.jpg';
+  'https://storage.googleapis.com/champagne-media/EMAIL_CLIP_ART.png';
