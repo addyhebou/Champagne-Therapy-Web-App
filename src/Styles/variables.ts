@@ -4,6 +4,7 @@ export const Colors = {
   WHITE: '#fff',
   CHAMPAGNE_GOLD: '#d79e00',
   BLACK: '#000',
+  GREY: '#6C6C6C',
 };
 
 export const Text = {

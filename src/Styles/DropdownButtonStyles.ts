@@ -17,3 +17,15 @@ export const dropdownButtonStyles = {
     color: Colors.CHAMPAGNE_GOLD,
   },
 };
+
+export const checkboxMenuClassname = css({
+  display: 'flex',
+  flexDirection: 'column',
+  alignItems: 'flex-start',
+  padding: '14px 13px',
+  gap: '14px',
+  background: Colors.BLACK,
+  border: `2px solid ${Colors.GREY}`,
+  borderRadius: '12px',
+  color: Colors.WHITE,
+});

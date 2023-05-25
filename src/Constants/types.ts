@@ -1,3 +1,5 @@
+import { FILTERS } from './constants';
+
 export interface RosterMember {
   name: string;
   imageURL: string;
@@ -31,3 +33,5 @@ export const ModalTypes = {
   STANDARD: 'standard',
   EMAIL: 'email',
 };
+
+export type FilterCategory = (typeof FILTERS)[number];

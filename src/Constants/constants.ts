@@ -24,4 +24,10 @@ export const SOCIAL_MEDIA_PLATFORMS = {
   YOUTUBE: 'YouTube',
 };
 
-export const FILTERS = ['artist', 'album', 'genre', 'producers', 'writers'];
+export const FILTERS = [
+  'artist',
+  'album',
+  'genre',
+  'produced by',
+  'written by',
+] as const;
