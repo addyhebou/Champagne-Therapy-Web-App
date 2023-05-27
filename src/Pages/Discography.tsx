@@ -4,10 +4,18 @@ import TextField from '../Components/TextField';
 import { discographyClassname } from '../Styles/DiscographyStyles';
 import { AlbumArtworkPane } from '../Components/AlbumArtworkPane';
 import { SortAndFilterPane } from '../Components/SortAndFilterPane';
+import { FilterMap } from '../Constants/discography';
 
 export const Discography = () => {
   const [search, setSearch] = useState<string>('');
-  const [filters, setFilters] = useState<string[]>([]);
+  const [filters, setFilters] = useState<FilterMap>({
+    album: [],
+    artist: [],
+    genre: [],
+    producers: [],
+    writers: [],
+  });
+
   return (
     <div className={discographyClassname}>
       <PageHeader text={'Discography'} />
@@ -17,7 +25,7 @@ export const Discography = () => {
         size={'long'}
         onChange={setSearch}
       />
-      <SortAndFilterPane setFilters={setFilters} />
+      <SortAndFilterPane filters={filters} setFilters={setFilters} />
       <AlbumArtworkPane searchTerm={search} filters={filters} />
     </div>
   );

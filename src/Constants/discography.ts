@@ -16,6 +16,14 @@ export interface Record {
   img: string;
 }
 
+export interface FilterMap {
+  album: string[];
+  artist: string[];
+  genre: string[];
+  producers: string[];
+  writers: string[];
+}
+
 const THANK_U_NEXT: Record = {
   title: 'Thank U Next',
   artist: 'Ariana Grande',
