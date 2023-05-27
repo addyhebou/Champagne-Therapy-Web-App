@@ -8,7 +8,12 @@ import {
 import { Producer, Writer } from '../Constants/types';
 import { doesWriterMatchSearchName } from '../Utils/functions';
 
-export const AlbumArtworkPane = ({ searchTerm }: { searchTerm: string }) => {
+interface Props {
+  searchTerm: string;
+  filters: string[];
+}
+
+export const AlbumArtworkPane = ({ searchTerm, filters }: Props) => {
   const srcset = (image: string, size: number, rows = 1, cols = 1) => {
     return {
       src: `${image}?w=${size * cols}&h=${size * rows}&fit=crop&auto=format`,

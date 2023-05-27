@@ -12,15 +12,16 @@ import {
   dropdownButtonStyles,
   popoverOverrides,
 } from '../../Styles/DropdownButtonStyles';
-import { Writer } from '../../Constants/types';
-import { DISCOGRAPHY, Record } from '../../Constants/discography';
+import { Producer } from '../../Constants/types';
 import { Colors } from '../../Styles/variables';
 
 interface Props {
   text: string;
+  options: (string | Producer)[];
+  category: string;
 }
 
-export const DropdownButton = ({ text }: Props) => {
+export const DropdownButton = ({ text, options, category }: Props) => {
   const [anchorEl, setAnchorEl] = useState<HTMLButtonElement | null>(null);
 
   const handleClick = (e: React.MouseEvent<HTMLButtonElement>) =>
@@ -29,6 +30,38 @@ export const DropdownButton = ({ text }: Props) => {
   const handleClose = () => setAnchorEl(null);
 
   const id = !!anchorEl ? 'simple-popover' : undefined;
+
+  const CheckboxMenu = () => {
+    return (
+      <FormControl
+        sx={{ m: 2, border: `2px solid ${Colors.GREY}`, p: '14px 13px' }}
+        component="fieldset"
+        className={checkboxMenuClassname}
+      >
+        <FormGroup>
+          {options.map(
+            (option) =>
+              typeof option === 'string' && (
+                <FormControlLabel
+                  control={
+                    <Checkbox
+                      name={option}
+                      sx={{
+                        color: Colors.CHAMPAGNE_GOLD,
+                        '&.Mui-checked': {
+                          color: Colors.CHAMPAGNE_GOLD,
+                        },
+                      }}
+                    />
+                  }
+                  label={option}
+                />
+              )
+          )}
+        </FormGroup>
+      </FormControl>
+    );
+  };
 
   return (
     <div>
@@ -46,65 +79,8 @@ export const DropdownButton = ({ text }: Props) => {
         }}
         className={popoverOverrides}
       >
-        <CheckboxMenu category={getCategoryByText(text)} />
+        <CheckboxMenu />
       </Popover>
     </div>
-  );
-};
-
-const getCategoryByText = (text: string) => {
-  switch (text) {
-    case 'produced by':
-      return 'producers';
-    case 'written by':
-      return 'writers';
-    case 'album':
-      return 'title';
-    default:
-      return text;
-  }
-};
-
-const getFilterOptions = (category: string) => [
-  ...new Set(
-    DISCOGRAPHY.map((record) =>
-      category !== 'producers' && category !== 'writers'
-        ? record[category as keyof Record]
-        : (record[category as keyof Record] as Writer[]).map(
-            (writer) => writer.name
-          )
-    ).flat()
-  ),
-];
-
-const CheckboxMenu = ({ category }: { category: string }) => {
-  return (
-    <FormControl
-      sx={{ m: 2, border: `2px solid ${Colors.GREY}`, p: '14px 13px' }}
-      component="fieldset"
-      className={checkboxMenuClassname}
-    >
-      <FormGroup>
-        {getFilterOptions(category).map(
-          (option) =>
-            typeof option === 'string' && (
-              <FormControlLabel
-                control={
-                  <Checkbox
-                    name={option}
-                    sx={{
-                      color: Colors.CHAMPAGNE_GOLD,
-                      '&.Mui-checked': {
-                        color: Colors.CHAMPAGNE_GOLD,
-                      },
-                    }}
-                  />
-                }
-                label={option}
-              />
-            )
-        )}
-      </FormGroup>
-    </FormControl>
   );
 };

@@ -7,6 +7,7 @@ import { SortAndFilterPane } from '../Components/SortAndFilterPane';
 
 export const Discography = () => {
   const [search, setSearch] = useState<string>('');
+  const [filters, setFilters] = useState<string[]>([]);
   return (
     <div className={discographyClassname}>
       <PageHeader text={'Discography'} />
@@ -16,8 +17,8 @@ export const Discography = () => {
         size={'long'}
         onChange={setSearch}
       />
-      <SortAndFilterPane />
-      <AlbumArtworkPane searchTerm={search} />
+      <SortAndFilterPane setFilters={setFilters} />
+      <AlbumArtworkPane searchTerm={search} filters={filters} />
     </div>
   );
 };
