@@ -4,17 +4,17 @@ import {
   FormControl,
   FormControlLabel,
   FormGroup,
-  FormHelperText,
-  FormLabel,
   Popover,
 } from '@mui/material';
 import React, { useState } from 'react';
 import {
   checkboxMenuClassname,
   dropdownButtonStyles,
+  popoverOverrides,
 } from '../../Styles/DropdownButtonStyles';
-import { FilterCategory, Producer, Writer } from '../../Constants/types';
+import { Writer } from '../../Constants/types';
 import { DISCOGRAPHY, Record } from '../../Constants/discography';
+import { Colors } from '../../Styles/variables';
 
 interface Props {
   text: string;
@@ -44,7 +44,7 @@ export const DropdownButton = ({ text }: Props) => {
           vertical: 'bottom',
           horizontal: 'left',
         }}
-        sx={{ backgroundColor: 'none', border: 'none' }}
+        className={popoverOverrides}
       >
         <CheckboxMenu category={getCategoryByText(text)} />
       </Popover>
@@ -77,28 +77,34 @@ const getFilterOptions = (category: string) => [
   ),
 ];
 
-console.log(getFilterOptions('producers'));
-
 const CheckboxMenu = ({ category }: { category: string }) => {
   return (
-    <div>
-      <FormControl
-        sx={{ m: 2 }}
-        component="fieldset"
-        className={checkboxMenuClassname}
-      >
-        <FormGroup>
-          {getFilterOptions(category).map(
-            (option) =>
-              typeof option === 'string' && (
-                <FormControlLabel
-                  control={<Checkbox name="gilad" />}
-                  label={option}
-                />
-              )
-          )}
-        </FormGroup>
-      </FormControl>
-    </div>
+    <FormControl
+      sx={{ m: 2, border: `2px solid ${Colors.GREY}`, p: '14px 13px' }}
+      component="fieldset"
+      className={checkboxMenuClassname}
+    >
+      <FormGroup>
+        {getFilterOptions(category).map(
+          (option) =>
+            typeof option === 'string' && (
+              <FormControlLabel
+                control={
+                  <Checkbox
+                    name={option}
+                    sx={{
+                      color: Colors.CHAMPAGNE_GOLD,
+                      '&.Mui-checked': {
+                        color: Colors.CHAMPAGNE_GOLD,
+                      },
+                    }}
+                  />
+                }
+                label={option}
+              />
+            )
+        )}
+      </FormGroup>
+    </FormControl>
   );
 };

@@ -18,14 +18,20 @@ export const dropdownButtonStyles = {
   },
 };
 
+export const popoverOverrides = css({
+  '> .css-3bmhjh-MuiPaper-root-MuiPopover-paper': {
+    background: 'none',
+    boxShadow: 'none',
+  },
+});
+
 export const checkboxMenuClassname = css({
   display: 'flex',
   flexDirection: 'column',
   alignItems: 'flex-start',
   padding: '14px 13px',
-  gap: '14px',
+  gap: '24px',
   background: Colors.BLACK,
-  border: `2px solid ${Colors.GREY}`,
   borderRadius: '12px',
   color: Colors.WHITE,
 });
