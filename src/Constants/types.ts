@@ -32,6 +32,7 @@ export const ModalTypes = {
   NEWS_ALERT: 'news_alert',
   STANDARD: 'standard',
   EMAIL: 'email',
+  RECORD: 'record',
 };
 
 export type FilterCategory = (typeof FILTERS)[number];

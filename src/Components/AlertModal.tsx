@@ -17,7 +17,7 @@ interface Props {
   type?: ModalType;
   releaseInformation?: NewRelease[];
   title?: string;
-  description?: string;
+  description?: React.ReactNode;
   buttonText?: string;
   artworkURL?: string;
 }
@@ -58,6 +58,8 @@ export const AlertModal = ({
         return 'New Release';
       case ModalTypes.EMAIL:
         return 'Email Sent!';
+      case ModalTypes.RECORD:
+        return 'Record';
       default:
         break;
     }
