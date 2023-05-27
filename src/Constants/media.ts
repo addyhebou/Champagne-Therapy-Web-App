@@ -90,3 +90,6 @@ export const NEWS_ALERTS: NewRelease[] = [
     redirectURL: 'https://open.spotify.com/track/7xbES0Q8dhPCTyjXOgThXf',
   },
 ];
+
+export const EMAIL_CLIP_ART_URL =
+  'https://storage.googleapis.com/champagne-media/EMAIL_CLIP_ART.png';

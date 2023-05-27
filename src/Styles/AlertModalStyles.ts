@@ -1,45 +1,19 @@
-import { css } from '@emotion/react';
+import { css } from '@emotion/css';
 import { Colors } from './variables';
 
-export const NewsAlertButtonStyles = css({
-  display: 'flex',
-  flexDirection: 'row',
-  alignItems: 'flexStart',
-  padding: '18px 45px',
-  gap: ' 10px',
-
-  width: '254px',
-  height: '60px',
-
-  background: '#C0013D',
-  borderRadius: '72px',
-
-  // Font Styles
-  fontFamily: 'Inter',
-  fontStyle: 'normal',
-  fontWeight: '700',
-  fontSize: '1.125em',
-  letterSpacing: '0.095em',
-  textTransform: 'uppercase',
-  color: Colors.WHITE,
-
-  '&:hover': {
-    background: '#C0013D',
-  },
-});
-
-export const NewsAlertModalStyles = css({
+export const AlertModalModalStyles = css({
   display: 'flex',
   flexDirection: 'row',
   alignItems: 'center',
   position: 'absolute' as 'absolute',
+  justifyContent: 'center',
   top: '50%',
   left: '50%',
   transform: 'translate(-50%, -50%)',
   padding: '2em 1em',
   width: '395px',
   height: 'min(60vh, 634px)',
-  background: 'linear-gradient(180deg, #D78FA5 0%, #FF578A 100%)',
+  background: Colors.CHAMPAGNE_GOLD,
   borderRadius: '29px',
   '.contentAndFooter': {
     display: 'flex',
@@ -88,4 +62,16 @@ export const NewsAlertModalStyles = css({
       justifyContent: 'center',
     },
   },
+});
+
+export const modalTitleClassname = css({
+  position: 'absolute' as 'absolute',
+  top: '-10%',
+  left: '50%',
+  transform: 'translate(-50%, -50%)',
+  color: Colors.WHITE,
+  letterSpacing: '0.17em',
+  width: '100%',
+  textAlign: 'center',
+  textTransform: 'uppercase',
 });

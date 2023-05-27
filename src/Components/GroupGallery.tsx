@@ -1,15 +1,14 @@
 import React from 'react';
 import { Link } from 'react-router-dom';
 import '../Styles/GroupGallery.scss';
-import { ORIENTATIONS } from '../Constants/constants';
 
 interface Props {
-  images: string[];
-  orientation: 'left' | 'right';
-  id: string;
+  images: React.ReactNode[];
+  orientation: 'topDownRows' | 'bottomUpRows';
+  id: number;
 }
 
-export default function GroupGallery({ images, orientation, id }: props) {
+export default function GroupGallery({ images, orientation, id }: Props) {
   return (
     <div key={`group-${id}`} className={`GroupGallery ${orientation} `}>
       {images.map((img, i) => {

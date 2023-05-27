@@ -1,6 +1,14 @@
 import React from 'react';
 import Button from './Buttons/PrimaryBtn';
-import '../Styles/BlockSegment.scss';
+import {
+  alignItemsOverwrite,
+  blockSegmentClassname,
+  borderRadiusOverwrite,
+  flexDirectionOverwrite,
+  mediaContentClassname,
+  textAlignOverwrite,
+  textContentClassname,
+} from '../Styles/BlockSegment';
 
 const textContent = (
   props: Exclude<
@@ -9,15 +17,13 @@ const textContent = (
   >
 ) => {
   const orientation = props.orientation === 'left' ? 'leftAlign' : 'rightAlign';
+  const borderRadius =
+    props.orientation === 'left' ? 'borderRadiusLeft' : 'borderRadiusRight';
   return (
-    <div className={`textContent ${orientation}`}>
-      <div
-        className={`trapezoid ${
-          props.orientation === 'left'
-            ? 'borderRadiusLeft'
-            : 'borderRadiusRight'
-        }`}
-      >
+    <div
+      className={textContentClassname + ' ' + textAlignOverwrite(orientation)}
+    >
+      <div className={`trapezoid ${borderRadiusOverwrite(borderRadius)}`}>
         <h1>{props.header}</h1>
       </div>
       <div className="nestedContent">
@@ -37,7 +43,7 @@ const mediaContent = (
   videoURL?: string
 ) => {
   return (
-    <div className="mediaContent">
+    <div className={mediaContentClassname}>
       <img src={imageURL} alt={imageDescription} />
       {videoURL && (
         <video autoPlay muted loop>
@@ -65,7 +71,15 @@ interface BlockSegmentProps {
 export default function BlockSegment(props: BlockSegmentProps) {
   const orientation = props.orientation === 'left' ? 'row' : 'row-reverse';
   return (
-    <div className={`BlockSegment ${orientation}`}>
+    <div
+      className={
+        blockSegmentClassname +
+        ' ' +
+        flexDirectionOverwrite(orientation) +
+        ' ' +
+        alignItemsOverwrite(orientation)
+      }
+    >
       {textContent(props)}
       {mediaContent(props.imageDescription, props.imageURL, props.videoURL)}
     </div>

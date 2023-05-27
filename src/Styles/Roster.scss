@@ -4,21 +4,8 @@
     height: 6px;
     background-color: #d79e00;
     margin-top: 20px;
-    transition: all 0.25s;
   }
 
-  h1 {
-    font-family: 'Helvetica Neue';
-    font-style: normal;
-    font-weight: 700;
-    font-size: 48px;
-    line-height: 59px;
-    /* identical to box height */
-
-    text-transform: uppercase;
-
-    color: #ffffff;
-  }
   .TextField {
     margin: 0 auto;
   }
@@ -39,7 +26,6 @@
     background-color: black;
     margin: 0;
     padding: 40px 20px;
-    transition: all 0.25s;
   }
   li:hover {
     cursor: pointer;

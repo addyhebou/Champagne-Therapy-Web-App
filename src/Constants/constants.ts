@@ -23,3 +23,11 @@ export const SOCIAL_MEDIA_PLATFORMS = {
   APPLE_MUSIC: 'Apple Music',
   YOUTUBE: 'YouTube',
 };
+
+export const FILTERS = [
+  'artist',
+  'album',
+  'genre',
+  'produced by',
+  'written by',
+] as const;
