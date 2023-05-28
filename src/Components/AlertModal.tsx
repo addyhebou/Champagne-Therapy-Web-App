@@ -1,5 +1,13 @@
-import { Box, Button, ButtonProps, Fade, Modal, styled } from '@mui/material';
-import React from 'react';
+import {
+  Box,
+  Button,
+  ButtonProps,
+  Fade,
+  Modal,
+  rgbToHex,
+  styled,
+} from '@mui/material';
+import React, { useEffect } from 'react';
 import { ModalType, ModalTypes, NewRelease } from '../Constants/types';
 import {
   AlertModalModalStyles,
@@ -9,7 +17,8 @@ import ArrowForwardIosIcon from '@mui/icons-material/ArrowForwardIos';
 import ArrowBackIosIcon from '@mui/icons-material/ArrowBackIos';
 import { useState } from 'react';
 import { AlertModalButtonStyles } from '../Styles/AlertModalButtonStyles';
-import { Colors, Gradients } from '../Styles/variables';
+import { Gradients } from '../Styles/variables';
+import { adjustBrightness, getAverageColor } from '../Utils/getAverageColor';
 
 interface Props {
   open: boolean;
@@ -19,7 +28,7 @@ interface Props {
   title?: string;
   description?: React.ReactNode;
   buttonText?: string;
-  artworkURL?: string;
+  artworkURL: string;
 }
 
 export const AlertModal = ({
@@ -33,6 +42,9 @@ export const AlertModal = ({
   artworkURL,
 }: Props) => {
   const [step, setStep] = useState(0);
+  const [averageBackgroundColor, setAverageBackgroundColor] = useState<
+    string[]
+  >([]);
 
   const AlertModalButton = styled(Button)<ButtonProps>(
     () => AlertModalButtonStyles
@@ -65,6 +77,20 @@ export const AlertModal = ({
     }
   };
 
+  useEffect(() => {
+    getAverageColor(artworkURL ?? release?.artworkURL)
+      .then((color) => {
+        const hexValue = rgbToHex(color);
+        setAverageBackgroundColor([
+          rgbToHex(adjustBrightness(color, 0.2)),
+          rgbToHex(adjustBrightness(color, 1, true)),
+        ]);
+      })
+      .catch((error) => {
+        console.error(error);
+      });
+  }, [open, step]);
+
   return (
     <div>
       <Modal open={open} onClose={handleClose}>
@@ -73,8 +99,8 @@ export const AlertModal = ({
             className={AlertModalModalStyles}
             style={{
               background:
-                type === ModalTypes.NEWS_ALERT
-                  ? 'linear-gradient(180deg, #D78FA5 0%, #FF578A 100%)'
+                type !== ModalTypes.STANDARD && type !== ModalTypes.EMAIL
+                  ? `linear-gradient(180deg, ${averageBackgroundColor[0]} 0%, ${averageBackgroundColor[1]} 100%)`
                   : Gradients.CHAMPAGNE_GOLD,
             }}
           >
@@ -102,14 +128,7 @@ export const AlertModal = ({
                 </div>
               </div>
               <div className="footer">
-                <AlertModalButton
-                  variant="contained"
-                  onClick={handleAction}
-                  style={{
-                    background:
-                      type === ModalTypes.NEWS_ALERT ? '#C0013D' : Colors.BLACK,
-                  }}
-                >
+                <AlertModalButton variant="contained" onClick={handleAction}>
                   {release?.buttonText ?? buttonText}
                 </AlertModalButton>
               </div>

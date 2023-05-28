@@ -85,11 +85,6 @@ export const AlbumArtworkPane = ({ searchTerm, filters }: Props) => {
     setFilteredWriters(getFilteredWriters());
   }, [filters, searchTerm]);
 
-  `Produced by: ${selectedRecord.producers
-    .map((producer) => producer.name)
-    .join(', ')}
-Written by: ${selectedRecord.writers.map((writer) => writer.name).join(', ')}`;
-
   const description = (
     <div>
       {selectedRecord.producers.length > 0 && (
