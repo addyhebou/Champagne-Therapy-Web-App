@@ -111,6 +111,9 @@ export const AlertModal = ({
                   sx={{
                     color: 'white',
                     visibility: !!step ? 'visible' : 'hidden',
+                    '&:hover': {
+                      cursor: 'pointer',
+                    },
                   }}
                 />
               </div>
@@ -143,6 +146,9 @@ export const AlertModal = ({
                       step < releaseInformation.length - 1
                         ? 'visible'
                         : 'hidden',
+                    '&:hover': {
+                      cursor: 'pointer',
+                    },
                   }}
                 />
               </div>
