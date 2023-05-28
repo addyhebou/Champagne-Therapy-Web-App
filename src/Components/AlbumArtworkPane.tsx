@@ -87,6 +87,7 @@ export const AlbumArtworkPane = ({ searchTerm, filters }: Props) => {
 
   const description = (
     <div>
+      <p style={{ fontSize: '0.75em' }}>Artist: {selectedRecord.artist}</p>
       {selectedRecord.producers.length > 0 && (
         <p style={{ fontSize: '0.75em' }}>
           Produced by:{' '}

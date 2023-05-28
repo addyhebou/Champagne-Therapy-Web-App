@@ -7,6 +7,7 @@ import { Link } from 'react-router-dom';
 import { ROSTER_LIST } from '../Constants/media';
 import { PageHeader } from '../Components/Headers/PageHeader';
 import { doesWriterMatchSearchName } from '../Utils/functions';
+import { Writer } from '../Constants/types';
 
 export default function Roster() {
   const [searchedWriter, setSearchedWriter] = useState('');
@@ -15,8 +16,8 @@ export default function Roster() {
     setSearchedWriter(currentSearch);
   };
 
-  const filteredWriters = Object.keys(WRITERS).filter((writer) =>
-    doesWriterMatchSearchName(writer, searchedWriter)
+  const filteredWriters = Object.values(WRITERS).filter((writer) =>
+    doesWriterMatchSearchName(writer.name, searchedWriter)
   );
 
   return (
@@ -36,17 +37,17 @@ export default function Roster() {
   );
 }
 
-const SearchedList = ({ filteredWriters }: { filteredWriters: string[] }) => {
+const SearchedList = ({ filteredWriters }: { filteredWriters: Writer[] }) => {
   return (
     <ul className="SearchedList">
       {filteredWriters.map((writer) => (
         <Link
-          to={`/profile/${writer}`}
-          state={{ writer: writer }}
+          to={`/profile/${writer.name}`}
+          state={{ writer: writer.name }}
           style={{ textDecoration: 'none' }}
         >
           <li>
-            {writer}
+            {writer.name}
             <div className="slidingUnderline"></div>
           </li>
         </Link>
