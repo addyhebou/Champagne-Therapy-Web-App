@@ -6,7 +6,7 @@ import {
   albumArtworkPaneItemClassname,
 } from '../Styles/AlbumArtworkPaneStyles';
 import { ModalTypes, Producer, Writer } from '../Constants/types';
-import { doesWriterMatchSearchName } from '../Utils/functions';
+import { doesWriterMatchSearchName, isObjectEmpty } from '../Utils/functions';
 import { AlertModal } from './AlertModal';
 
 interface Props {
@@ -49,9 +49,6 @@ export const AlbumArtworkPane = ({ searchTerm, filters }: Props) => {
         ? doesWriterMatchSearchName(value, searchTerm)
         : doesArrayContainSearchTerm(value)
     );
-
-  const isObjectEmpty = (obj: object): boolean =>
-    Object.values(obj).every((value) => value.length === 0);
 
   const doesRecordMatchFilters = (record: Record) =>
     isObjectEmpty(filters) ||
@@ -111,7 +108,8 @@ export const AlbumArtworkPane = ({ searchTerm, filters }: Props) => {
       className={albumArtworkPaneClassname}
     >
       {filteredWriters.map((item, i) => {
-        const colRowSize = i % 3 === 0 ? 2 : 1;
+        const colRowSize =
+          !!searchTerm || !isObjectEmpty(filters) || i % 3 === 0 ? 2 : 1;
         return (
           <ImageListItem
             key={i}
