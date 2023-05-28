@@ -88,13 +88,13 @@ export const AlbumArtworkPane = ({ searchTerm, filters }: Props) => {
   const description = (
     <div>
       {selectedRecord.producers.length > 0 && (
-        <p>
+        <p style={{ fontSize: '0.75em' }}>
           Produced by:{' '}
           {selectedRecord.producers.map((producer) => producer.name).join(', ')}
         </p>
       )}
       {selectedRecord.writers.length > 0 && (
-        <p>
+        <p style={{ fontSize: '0.75em' }}>
           Written by:{' '}
           {selectedRecord.writers.map((writer) => writer.name).join(', ')}
         </p>

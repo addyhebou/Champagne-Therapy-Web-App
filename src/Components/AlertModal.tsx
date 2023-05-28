@@ -80,7 +80,6 @@ export const AlertModal = ({
   useEffect(() => {
     getAverageColor(artworkURL ?? release?.artworkURL)
       .then((color) => {
-        const hexValue = rgbToHex(color);
         setAverageBackgroundColor([
           rgbToHex(adjustBrightness(color, 0.2)),
           rgbToHex(adjustBrightness(color, 1, true)),
