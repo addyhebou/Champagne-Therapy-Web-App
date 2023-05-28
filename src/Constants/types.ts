@@ -36,5 +36,3 @@ export const ModalTypes = {
 };
 
 export type FilterCategory = (typeof FILTERS)[number];
-
-export type RGB = number[];
