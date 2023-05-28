@@ -11,7 +11,7 @@ export const AlertModalButtonStyles = css({
   width: '254px',
   height: '60px',
 
-  background: Colors.CHAMPAGNE_GOLD,
+  background: Colors.BLACK,
   borderRadius: '72px',
 
   // Font Styles
