@@ -103,6 +103,14 @@ const UN_VERANO_SIN_TI: Record = {
   writers: [WRITERS.BASS_CHARITY],
   img: 'https://upload.wikimedia.org/wikipedia/en/6/60/Bad_Bunny_-_Un_Verano_Sin_Ti.png',
 };
+const LLNM2: Record = {
+  title: 'LLNM2',
+  artist: 'Anuel AA',
+  genre: Genres.REGGAETON,
+  producers: [WRITERS.BASS_CHARITY, WRITERS.RHYS],
+  writers: [WRITERS.BASS_CHARITY, WRITERS.RHYS],
+  img: 'https://upload.wikimedia.org/wikipedia/en/b/be/Anuel_AA_-_LLNM2.jpg',
+};
 
 export const DISCOGRAPHY = [
   THANK_U_NEXT,
@@ -114,6 +122,7 @@ export const DISCOGRAPHY = [
   MAP_OF_THE_SOUL_7,
   LEGEND,
   UN_VERANO_SIN_TI,
+  LLNM2,
   THANK_U_NEXT,
   JUSTICE,
   FUTURE_NOSTALIGA,
@@ -123,6 +132,7 @@ export const DISCOGRAPHY = [
   MAP_OF_THE_SOUL_7,
   LEGEND,
   UN_VERANO_SIN_TI,
+  LLNM2,
   THANK_U_NEXT,
   JUSTICE,
   FUTURE_NOSTALIGA,
@@ -135,6 +145,7 @@ export const DISCOGRAPHY = [
   UN_VERANO_SIN_TI,
   LEGEND,
   FUTURE_NOSTALIGA,
+  LLNM2,
   THANK_U_NEXT,
   JUSTICE,
   DAWN_FM,
@@ -144,6 +155,7 @@ export const DISCOGRAPHY = [
   FUTURE_NOSTALIGA,
   UN_VERANO_SIN_TI,
   LEGEND,
+  LLNM2,
   THANK_U_NEXT,
   JUSTICE,
   FUTURE_NOSTALIGA,
@@ -151,12 +163,14 @@ export const DISCOGRAPHY = [
   POSITIONS,
   CERTIFIED_LOVER_BOY,
   MAP_OF_THE_SOUL_7,
+  LLNM2,
   THANK_U_NEXT,
   UN_VERANO_SIN_TI,
   JUSTICE,
   LEGEND,
   FUTURE_NOSTALIGA,
   DAWN_FM,
+  LLNM2,
   THANK_U_NEXT,
   POSITIONS,
   CERTIFIED_LOVER_BOY,
@@ -173,4 +187,5 @@ export const DISCOGRAPHY = [
   MAP_OF_THE_SOUL_7,
   LEGEND,
   UN_VERANO_SIN_TI,
+  LLNM2,
 ];

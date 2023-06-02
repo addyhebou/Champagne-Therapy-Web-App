@@ -8,7 +8,7 @@ export interface RosterMember {
 export interface Writer extends RosterMember {
   biography: string;
   bigImageURL: string;
-  socials: Record<SocialMediaPlatform, string>;
+  socials?: Record<SocialMediaPlatform, string>;
 }
 
 export interface Producer extends Writer {}

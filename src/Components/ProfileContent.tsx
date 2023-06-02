@@ -6,7 +6,7 @@ interface Props {
   name: string;
   imageURL: string;
   biography: string;
-  socialURLs: Record<string, string>;
+  socialURLs?: Record<string, string>;
 }
 export default function ProfileContent({
   name,
@@ -19,24 +19,25 @@ export default function ProfileContent({
       <div className="text">
         <h1>{name}</h1>
         <div className="socialIcons">
-          {Object.keys(socialURLs).map(
-            (platform) =>
-              socialURLs[platform] && (
-                <div>
-                  <a
-                    href={socialURLs[platform]}
-                    target="_blank"
-                    rel="noreferrer"
-                  >
-                    {platform}
-                  </a>
-                </div>
-              )
-          )}
+          {socialURLs &&
+            Object.keys(socialURLs).map(
+              (platform) =>
+                socialURLs[platform] && (
+                  <div>
+                    <a
+                      href={socialURLs[platform]}
+                      target="_blank"
+                      rel="noreferrer"
+                    >
+                      {platform}
+                    </a>
+                  </div>
+                )
+            )}
         </div>
         <AnimatedSliderButton
           text={'View Discography'}
-          link={socialURLs['Spotify']}
+          link={socialURLs ? socialURLs['Spotify'] : 'google.com'}
         />
         <>
           <h2>Biography</h2>

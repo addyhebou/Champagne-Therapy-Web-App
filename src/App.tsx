@@ -7,6 +7,7 @@ import { Contact } from './Pages/Contact';
 import Navbar from './Components/Navbar';
 import { Discography } from './Pages/Discography';
 import { About } from './Pages/About';
+import { Test } from './Pages/Test';
 import { appClassname } from './AppStyles';
 
 function App() {
@@ -20,6 +21,7 @@ function App() {
         <Route path="/profile/:writer" element={<Profile />} />
         <Route path="/contact" element={<Contact />} />
         <Route path="/about" element={<About />} />
+        <Route path="/test" element={<Test />} />
       </Routes>
     </div>
   );
