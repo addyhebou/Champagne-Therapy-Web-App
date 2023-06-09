@@ -107,8 +107,8 @@ const LLNM2: Record = {
   title: 'LLNM2',
   artist: 'Anuel AA',
   genre: Genres.REGGAETON,
-  producers: [WRITERS.BASS_CHARITY, WRITERS.RHYS],
-  writers: [WRITERS.BASS_CHARITY, WRITERS.RHYS],
+  producers: [WRITERS.BASS_CHARITY],
+  writers: [WRITERS.BASS_CHARITY],
   img: 'https://upload.wikimedia.org/wikipedia/en/b/be/Anuel_AA_-_LLNM2.jpg',
 };
 
