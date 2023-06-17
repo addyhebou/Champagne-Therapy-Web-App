@@ -1,6 +1,6 @@
-import { Writer } from './types';
+import { ROLES, RosterMember } from './types';
 
-export const WRITERS: Record<string, Writer> = {
+export const ROSTER_MEMBERS: Record<string, RosterMember> = {
   TOMMY_BROWN: {
     name: 'Tommy Brown',
     imageURL:
@@ -16,6 +16,7 @@ export const WRITERS: Record<string, Writer> = {
         'https://music.apple.com/us/playlist/tommy-brown-songbook/pl.741b297215834136aa0a6ce724101769',
       YouTube: '',
     },
+    roles: [ROLES.PRODUCER],
   },
   MR_FRANKS: {
     name: 'Mr. Franks',
@@ -32,6 +33,7 @@ export const WRITERS: Record<string, Writer> = {
         'https://music.apple.com/us/playlist/tommy-brown-songbook/pl.741b297215834136aa0a6ce724101769',
       YouTube: '',
     },
+    roles: [ROLES.PRODUCER],
   },
   PETER_LEE_JOHNSON: {
     name: 'Peter Lee Johnson',
@@ -46,6 +48,7 @@ export const WRITERS: Record<string, Writer> = {
         'https://music.apple.com/us/playlist/tommy-brown-songbook/pl.741b297215834136aa0a6ce724101769',
       YouTube: '',
     },
+    roles: [ROLES.PRODUCER],
   },
   // '3-60': {},
   MELANIE_JOY_FONTANA: {
@@ -61,6 +64,7 @@ export const WRITERS: Record<string, Writer> = {
         'https://music.apple.com/us/playlist/tommy-brown-songbook/pl.741b297215834136aa0a6ce724101769',
       YouTube: '',
     },
+    roles: [ROLES.WRITER],
   },
   BASS_CHARITY: {
     name: 'Bass Charity',
@@ -75,6 +79,7 @@ export const WRITERS: Record<string, Writer> = {
         'https://music.apple.com/us/playlist/tommy-brown-songbook/pl.741b297215834136aa0a6ce724101769',
       YouTube: '',
     },
+    roles: [ROLES.PRODUCER],
   },
   // 'Travis Sayles': {},
 };

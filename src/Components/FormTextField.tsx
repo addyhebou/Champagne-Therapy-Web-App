@@ -15,6 +15,8 @@ export const FormTextField = (props: TextFieldProps) => {
         style={props.style}
         multiline={props.multiline}
         minRows={props.minRows}
+        onChange={props.onChange}
+        value={props.value}
       />
     </ThemeProvider>
   );

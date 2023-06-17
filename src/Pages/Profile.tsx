@@ -1,6 +1,6 @@
 import React from 'react';
 import { useLocation } from 'react-router-dom';
-import { WRITERS } from '../Constants/writerMetadata';
+import { ROSTER_MEMBERS } from '../Constants/writerMetadata';
 import ProfileContent from '../Components/ProfileContent';
 
 export default function Profile() {
@@ -10,14 +10,14 @@ export default function Profile() {
   const findTheWriterObjectWithWriterName = (
     name: string
   ): string | undefined => {
-    return Object.entries(WRITERS).find((writer) => {
+    return Object.entries(ROSTER_MEMBERS).find((writer) => {
       return writer[1].name.toLowerCase().includes(name.toLowerCase());
     })?.[0];
   };
 
   const writerObject = findTheWriterObjectWithWriterName(writer);
   if (!writerObject) return <></>;
-  const data = WRITERS[writerObject];
+  const data = ROSTER_MEMBERS[writerObject];
   return (
     <div className="Profile">
       <ProfileContent

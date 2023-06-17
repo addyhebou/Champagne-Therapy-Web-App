@@ -2,7 +2,7 @@ import { useState } from 'react';
 import TextField from '../Components/TextField';
 import ImageGallery from '../Components/ImageGallery';
 import '../Styles/Roster.scss';
-import { WRITERS } from '../Constants/writerMetadata';
+import { ROSTER_MEMBERS } from '../Constants/writerMetadata';
 import { Link } from 'react-router-dom';
 import { ROSTER_LIST } from '../Constants/media';
 import { PageHeader } from '../Components/Headers/PageHeader';
@@ -16,7 +16,7 @@ export default function Roster() {
     setSearchedWriter(currentSearch);
   };
 
-  const filteredWriters = Object.values(WRITERS).filter((writer) =>
+  const filteredWriters = Object.values(ROSTER_MEMBERS).filter((writer) =>
     doesWriterMatchSearchName(writer.name, searchedWriter)
   );
 

@@ -31,6 +31,10 @@ interface Props {
   artworkURL: string;
 }
 
+export const AlertModalButton = styled(Button)<ButtonProps>(
+  () => AlertModalButtonStyles
+);
+
 export const AlertModal = ({
   releaseInformation,
   open,
@@ -45,10 +49,6 @@ export const AlertModal = ({
   const [averageBackgroundColor, setAverageBackgroundColor] = useState<
     string[]
   >([]);
-
-  const AlertModalButton = styled(Button)<ButtonProps>(
-    () => AlertModalButtonStyles
-  );
 
   const handleAction = () => {
     (releaseInformation &&

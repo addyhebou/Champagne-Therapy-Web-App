@@ -3,15 +3,23 @@ import { FILTERS } from './constants';
 export interface RosterMember {
   name: string;
   imageURL: string;
-}
-
-export interface Writer extends RosterMember {
   biography: string;
   bigImageURL: string;
   socials?: Record<SocialMediaPlatform, string>;
+  roles: string[];
 }
 
-export interface Producer extends Writer {}
+export interface Writer extends RosterMember {}
+
+export interface Producer extends RosterMember {}
+
+export interface Artist extends RosterMember {}
+
+export const ROLES = {
+  PRODUCER: 'Producer',
+  ARTIST: 'Artist',
+  WRITER: 'Writer',
+};
 
 export type SocialMediaPlatform =
   | 'Tik Tok'

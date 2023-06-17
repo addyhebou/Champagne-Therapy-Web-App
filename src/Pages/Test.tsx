@@ -10,17 +10,85 @@ import {
   updateDoc,
 } from 'firebase/firestore';
 import { Writer } from '../Constants/types';
+import { RoundedButton } from '../Components/Buttons/RoundedButton';
+import { sortAndFilterPaneClassname } from '../Styles/SortAndFilterPaneStyles';
+import { DropdownButton } from '../Components/Buttons/DropdownButton';
+import {
+  editSelectionPaneClassname,
+  memberCardClassname,
+  memberCardListClassname,
+  selectionPaneClassname,
+} from '../Styles/TestStyles';
+import TextField from '../Components/TextField';
+import { ROSTER_LIST } from '../Constants/media';
+import { ROSTER_MEMBERS } from '../Constants/writerMetadata';
+import { AlertModalButton } from '../Components/AlertModal';
+import { FormButton } from '../Components/Buttons/FormButton';
+import { FormTextField } from '../Components/FormTextField';
+import {
+  contactFormClassname,
+  textFieldClassname,
+} from '../Styles/ContactStyles';
 
 type WriterCollection<T> = Partial<T> & { id: string };
+
+type EditType = {
+  title: string;
+  headers: string[];
+};
+
+const EditTypes = {
+  TEAM_MEMBER: {
+    title: 'Team Members',
+    headers: [
+      'Select A Team Member',
+      'Search team members',
+      'Edit Contents',
+      'Profile Pic Preview',
+    ],
+  },
+  RECORDS: {
+    title: 'Records',
+    headers: [
+      'Select A Team Member',
+      'Search team members',
+      'Edit Contents',
+      'Profile Pic Preview',
+    ],
+  },
+  NEW_RELEASES: {
+    title: 'New Releases',
+    headers: [
+      'Select A Team Member',
+      'Search team members',
+      'Edit Contents',
+      'Profile Pic Preview',
+    ],
+  },
+  COPY: {
+    title: 'Copy',
+    headers: [
+      'Select A Team Member',
+      'Search team members',
+      'Edit Contents',
+      'Profile Pic Preview',
+    ],
+  },
+};
+
 export const Test = () => {
   const [writers, setWriters] = useState<WriterCollection<Writer>[]>([]);
   const [name, setName] = useState('');
   const [imageURL, setImageURL] = useState('');
   const [bImageURL, setBImageURL] = useState('');
   const [bio, setBio] = useState('');
+  const [roles, setRoles] = useState([]);
   const [newName, setNewName] = useState('');
+  const [headerTitles, setHeaderTitles] = useState<string[]>([]);
   const writersCollectionRef = collection(db, 'writers');
   const recordsCollectionRef = collection(db, 'records');
+  const [editType, setEditType] = useState<EditType>(EditTypes.TEAM_MEMBER);
+  const [searchTerm, setSearchTerm] = useState<string>('');
 
   useEffect(() => {
     const getWriters = async () => {
@@ -42,6 +110,7 @@ export const Test = () => {
     };
     getWriters();
     getRecords();
+    handleHeaderTitles();
   }, []);
 
   const createNewWriter = async () => {
@@ -50,6 +119,7 @@ export const Test = () => {
       imageURL: imageURL,
       bigImageURL: bImageURL,
       biography: bio,
+      roles: roles,
     };
     await addDoc(writersCollectionRef, newWriter);
   };
@@ -59,6 +129,7 @@ export const Test = () => {
     const newFields = { name: newName };
     await updateDoc(writer, newFields);
   };
+
   const deleteWriter = async (id: string) => {
     const writerDoc = doc(db, 'writers', id);
     await deleteDoc(writerDoc);
@@ -66,6 +137,13 @@ export const Test = () => {
 
   const handleSubmit = (e: React.FormEvent<HTMLFormElement>) => {
     e.preventDefault();
+    console.log({
+      name: name,
+      imageURL: imageURL,
+      bigImageURL: bImageURL,
+      biography: bio,
+      roles: roles,
+    });
     createNewWriter();
     setName('');
     setBio('');
@@ -73,10 +151,129 @@ export const Test = () => {
     setImageURL('');
   };
 
+  const handleHeaderTitles = () => {
+    switch (editType) {
+      case EditTypes.TEAM_MEMBER:
+        setHeaderTitles([
+          'Select A Team Member',
+          'Search team members',
+          'Edit Contents',
+          'Profile Pic Preview',
+        ]);
+      default:
+        break;
+    }
+  };
+
+  const SelectionPane = () => {
+    return (
+      <div className={selectionPaneClassname}>
+        <h2>{headerTitles[0]}</h2>
+        <ul>
+          {Object.values(EditTypes).map((type) => (
+            <RoundedButton
+              text={type.title}
+              selected={true}
+              handleClick={() => {}}
+            />
+          ))}
+        </ul>
+        <TextField
+          value={searchTerm}
+          placeholder={headerTitles[1]}
+          onChange={setSearchTerm}
+          size={'short'}
+        />
+        <ul className={memberCardListClassname}>
+          {writers.map((member: WriterCollection<Writer>) => (
+            <div className={memberCardClassname}>
+              <section className="picAndText">
+                <img src={member.imageURL} />
+                <div>
+                  <p>{member.name}</p>
+                  {/* <p style={{ fontWeight: 'normal' }}>
+                    {member.roles.join(' | ')}
+                  </p> */}
+                </div>
+              </section>
+              <AlertModalButton variant="contained" onClick={() => {}}>
+                Edit
+              </AlertModalButton>
+              <AlertModalButton
+                variant="contained"
+                onClick={() => deleteWriter(member.id)}
+              >
+                Delete
+              </AlertModalButton>
+            </div>
+          ))}
+        </ul>
+      </div>
+    );
+  };
+
+  const EditSelectionPane = () => {
+    return (
+      <div className={editSelectionPaneClassname}>
+        <h2>{headerTitles[2]}</h2>
+        <form onSubmit={(e) => handleSubmit(e)}>
+          <div className={contactFormClassname}>
+            <FormTextField
+              id="name"
+              label="Name"
+              placeholder="Michael Jackson"
+              className={textFieldClassname}
+              style={{ width: '100%' }}
+              onChange={(e) => setName(e.target.value)}
+              value={name}
+            />
+            <FormTextField
+              id="profileURL"
+              label="Profile Picture URL"
+              placeholder="https://imageURL.com/picture"
+              className={textFieldClassname}
+              style={{ width: '100%' }}
+              onChange={(e) => setImageURL(e.target.value)}
+              value={imageURL}
+            />
+            <FormTextField
+              id="profileURL2"
+              label="Secondary Profile Picture (optional)"
+              placeholder="https://imageURL.com/picture"
+              className={textFieldClassname}
+              style={{ width: '100%' }}
+              onChange={(e) => setBImageURL(e.target.value)}
+              value={bImageURL}
+            />
+            <FormTextField
+              id="biography"
+              label="Biography"
+              placeholder="Michael Joseph Jackson (August 29, 1958 – June 25, 2009) was an American singer, songwriter, dancer, and philanthropist. Known as the 'King of Pop', he is regarded as one of the most significant cultural figures of the 20th century. During his four-decade career, his contributions to music, dance, and fashion, along with his publicized personal life, made him a global figure in popular culture."
+              className={textFieldClassname}
+              multiline
+              minRows={6}
+              style={{ width: '100%' }}
+              onChange={(e) => setBio(e.target.value)}
+              value={bio}
+            />
+          </div>
+          <div onClick={(e: any) => handleSubmit(e)}>
+            <FormButton text={'Submit New Member'} color={'primary'} />
+          </div>
+        </form>
+      </div>
+    );
+  };
+
   return (
     <div>
-      <PageHeader text={'Test Page'} letterSpacing />
-      <ul>
+      <PageHeader text={'UPDATE THE WEBSITE'} letterSpacing />
+      <div style={{ display: 'flex', alignItems: 'center' }}>
+        <SelectionPane />
+        <EditSelectionPane />
+        {/* <ProfilePicPreviewPane /> */}
+      </div>
+      {/* <ul>
         {writers.map((writer: WriterCollection<Writer>) => (
           <>
             <li>{writer.name}</li>
@@ -89,39 +286,12 @@ export const Test = () => {
             <button onClick={() => updateWriter(writer.id, newName)}>
               Update name
             </button>
-            <button onClick={() => deleteWriter(writer.id)}>
-              Delete writer
+            <button onClick={() => updateWriter(writer.id, newName)}>
+              Update biography
             </button>
           </>
         ))}
-      </ul>
-      <form onSubmit={handleSubmit}>
-        <input
-          type="text"
-          placeholder="Name"
-          value={name}
-          onChange={(e) => setName(e.target.value)}
-        />
-        <input
-          type="text"
-          placeholder="Image URL"
-          value={imageURL}
-          onChange={(e) => setImageURL(e.target.value)}
-        />
-        <input
-          type="text"
-          placeholder="Big Image URL"
-          value={bImageURL}
-          onChange={(e) => setBImageURL(e.target.value)}
-        />
-        <input
-          type="text"
-          placeholder="biography"
-          value={bio}
-          onChange={(e) => setBio(e.target.value)}
-        />
-        <input type="submit" value="Submit" />
-      </form>
+      </ul> */}
     </div>
   );
 };

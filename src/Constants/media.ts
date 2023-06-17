@@ -1,5 +1,6 @@
 import { getNewReleaseDescription } from '../Utils/copy';
 import { NewRelease, RosterMember } from './types';
+import { ROSTER_MEMBERS } from './writerMetadata';
 
 export const CHAMPAGNE_LOGO_URL =
   'https://storage.googleapis.com/champagne-media/Logo.png';
@@ -39,38 +40,7 @@ export const PLAYLISTS = [
   },
 ];
 
-export const ROSTER_LIST: RosterMember[] = [
-  {
-    name: 'Tommy Brown',
-    imageURL:
-      'https://storage.googleapis.com/champagne-media/Tommy%20Brown%20Profile%202.png',
-  },
-  {
-    name: 'Melanie Joy Fontana',
-    imageURL:
-      'https://storage.googleapis.com/champagne-media/Melanie%20Joy%20Fontana%20Profile.png',
-  },
-  {
-    name: 'Travis Sayles',
-    imageURL:
-      'https://storage.googleapis.com/champagne-media/Travis%20Sayles%20Profile%20Pic.png',
-  },
-  {
-    name: 'Mr. Franks',
-    imageURL:
-      'https://storage.googleapis.com/champagne-media/Mr.%20Franks%20Profile.png',
-  },
-  {
-    name: '3-60',
-    imageURL:
-      'https://storage.googleapis.com/champagne-media/360%20Profile%20Pic.png',
-  },
-  {
-    name: 'Saint Steph',
-    imageURL:
-      'https://storage.googleapis.com/champagne-media/Saint%20Steph%20Profile.png',
-  },
-];
+export const ROSTER_LIST: RosterMember[] = [ROSTER_MEMBERS.TOMMY_BROWN];
 
 export const NEWS_ALERTS: NewRelease[] = [
   {
