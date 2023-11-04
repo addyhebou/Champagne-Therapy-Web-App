@@ -31,3 +31,11 @@ export const FILTERS = [
   'produced by',
   'written by',
 ] as const;
+
+export const UPDATE_FORM = {
+  BIO_PLACEHOLDER:
+    'Justin Drew Bieber is a Canadian singer. He is recognized for his genre-melding artistry, tenor vocal range, and global influence in modern-day popular ...',
+  NAME_PLACEHOLDER: 'Justin Bieber',
+  PROFILE_PIC_URL: 'https://profilepicture.url',
+  SECONDARY_PROFILE_PIC_URL: 'https://profilepicture.url',
+};
