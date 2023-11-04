@@ -1,10 +1,14 @@
-import React, { FormEvent, useState } from 'react';
+import React, { FormEvent, useEffect, useState } from 'react';
 import { PageHeader } from '../Components/Headers/PageHeader';
 import { FormTextField } from '../Components/FormTextField';
 import { textFieldClassname } from '../Styles/ContactStyles';
 import { FormButton } from '../Components/Buttons/FormButton';
 import { updateFormClassname } from '../Styles/UpdateStyles';
 import { UPDATE_FORM } from '../Constants/constants';
+import { useGetWriters } from '../API/useGetWriters';
+import { Writer } from '../Constants/types';
+
+type WriterCollection<T> = Partial<T> & { id: string };
 
 export default function Update() {
   const [name, setName] = useState('');
@@ -12,10 +16,24 @@ export default function Update() {
   const [biography, setBiography] = useState('');
   const [secondaryProfilePictureURL, setSecondaryProfilePictureURL] =
     useState('');
+  const [writers, setWriters] = useState<WriterCollection<Writer>[]>([]);
 
   const handleSubmit = (e: FormEvent<HTMLFormElement>) => {
     e.preventDefault();
   };
+
+  useEffect(() => {
+    const fetchData = async () => {
+      try {
+        const writers = await useGetWriters();
+        setWriters(writers);
+      } catch (error) {
+        console.error('Error fetching writers:', error);
+      }
+    };
+
+    fetchData();
+  }, []);
 
   return (
     <div>
@@ -55,6 +73,11 @@ export default function Update() {
         />
         <FormButton text={'Submit New Member'} color={'primary'} />
       </form>
+      <ul>
+        {writers.map((writer) => (
+          <li>{writer.name}</li>
+        ))}
+      </ul>
     </div>
   );
 }
