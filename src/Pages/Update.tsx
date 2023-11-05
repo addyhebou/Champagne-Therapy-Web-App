@@ -8,6 +8,7 @@ import { UPDATE_FORM } from '../Constants/constants';
 import { useGetWriters } from '../API/useGetWriters';
 import { Writer } from '../Constants/types';
 import { useCreateWriter } from '../API/useAddWriters';
+import { useDeleteWriter } from '../API/useDeleteWriter';
 
 type WriterCollection<T> = Partial<T> & { id: string };
 
@@ -28,6 +29,11 @@ export default function Update() {
       biography,
       secondaryProfilePictureURL
     );
+    setFormSubmitted(true);
+  };
+
+  const handleDelete = (id: string) => {
+    useDeleteWriter(id);
     setFormSubmitted(true);
   };
 
@@ -86,7 +92,7 @@ export default function Update() {
       </form>
       <ul>
         {writers.map((writer) => (
-          <li>{writer.name}</li>
+          <li onClick={() => handleDelete(writer.id)}>{writer.name}</li>
         ))}
       </ul>
     </div>
