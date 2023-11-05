@@ -40,7 +40,11 @@ export const PLAYLISTS = [
   },
 ];
 
-export const ROSTER_LIST: RosterMember[] = [ROSTER_MEMBERS.TOMMY_BROWN];
+export const ROSTER_LIST: RosterMember[] = [
+  ROSTER_MEMBERS.TOMMY_BROWN,
+  ROSTER_MEMBERS.MR_FRANKS,
+  ROSTER_MEMBERS.PETER_LEE_JOHNSON,
+];
 
 export const NEWS_ALERTS: NewRelease[] = [
   {

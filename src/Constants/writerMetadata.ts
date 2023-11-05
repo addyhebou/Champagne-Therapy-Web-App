@@ -41,9 +41,11 @@ export const ROSTER_MEMBERS: Record<string, RosterMember> = {
   },
   MR_FRANKS: {
     name: 'Mr. Franks',
-    imageURL: PLAYLISTS[2].imageURL,
+    imageURL:
+      'https://champagne-therapy-music.sfo3.cdn.digitaloceanspaces.com/Mr.%20Franks%20Profile.png',
     biography: `Thomas Lee Brown (born May 1, 1986), also known as TBHits, is an American record producer, songwriter and rapper. Brown currently lives in LA and was born and raised in Pittsburgh, Pennsylvania. He is an ASCAP award winner and a Grammy nominee. He has scored multiple chart topping albums while working with Ariana Grande on all six of her studio albums. Brown has also collected production credits for three songs on Grammy-award-winning artist Meghan Trainor's second album, Thank You.`,
-    bigImageURL: PLAYLISTS[2].bigProfileImageURL || '',
+    bigImageURL:
+      'https://champagne-therapy-music.sfo3.cdn.digitaloceanspaces.com/Mr.%20Franks%20Profile.png',
     socials: {
       'Tik Tok': '',
       Spotify:
@@ -56,9 +58,11 @@ export const ROSTER_MEMBERS: Record<string, RosterMember> = {
   },
   PETER_LEE_JOHNSON: {
     name: 'Peter Lee Johnson',
-    imageURL: 'www.dummy.com',
+    imageURL:
+      'https://champagne-therapy-music.sfo3.cdn.digitaloceanspaces.com/peter_lee_johnson_pic_2.jpeg',
     biography: "I'm a goat",
-    bigImageURL: 'www.bigDummy.com',
+    bigImageURL:
+      'https://champagne-therapy-music.sfo3.cdn.digitaloceanspaces.com/peter_lee_johnson_pic_1.jpeg',
     socials: {
       'Tik Tok': '',
       Spotify:
