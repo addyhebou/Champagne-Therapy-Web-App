@@ -7,6 +7,7 @@ import { updateFormClassname } from '../Styles/UpdateStyles';
 import { UPDATE_FORM } from '../Constants/constants';
 import { useGetWriters } from '../API/useGetWriters';
 import { Writer } from '../Constants/types';
+import { useCreateWriter } from '../API/useAddWriters';
 
 type WriterCollection<T> = Partial<T> & { id: string };
 
@@ -17,23 +18,33 @@ export default function Update() {
   const [secondaryProfilePictureURL, setSecondaryProfilePictureURL] =
     useState('');
   const [writers, setWriters] = useState<WriterCollection<Writer>[]>([]);
+  const [formSubmitted, setFormSubmitted] = useState(false);
 
   const handleSubmit = (e: FormEvent<HTMLFormElement>) => {
     e.preventDefault();
+    useCreateWriter(
+      name,
+      profilePictureURL,
+      biography,
+      secondaryProfilePictureURL
+    );
+    setFormSubmitted(true);
   };
 
   useEffect(() => {
-    const fetchData = async () => {
-      try {
-        const writers = await useGetWriters();
-        setWriters(writers);
-      } catch (error) {
-        console.error('Error fetching writers:', error);
-      }
-    };
-
-    fetchData();
-  }, []);
+    if (formSubmitted) {
+      const fetchData = async () => {
+        try {
+          const writers = await useGetWriters();
+          setWriters(writers);
+        } catch (error) {
+          console.error('Error fetching writers:', error);
+        }
+      };
+      fetchData();
+      setFormSubmitted(false);
+    }
+  }, [formSubmitted]);
 
   return (
     <div>
