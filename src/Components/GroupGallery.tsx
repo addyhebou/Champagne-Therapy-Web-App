@@ -14,7 +14,7 @@ export default function GroupGallery({ images, orientation, id }: Props) {
       {images.map((img, i) => {
         const gridAreaStyle = i === 0 ? 'header' : `cell-${i}`;
         return (
-          <div className={`${gridAreaStyle} imgDiv`}>
+          <div key={i} className={`${gridAreaStyle} imgDiv`}>
             <Link
               to={`/profile/${img.props.alt}`}
               state={{ writer: img.props.alt }}

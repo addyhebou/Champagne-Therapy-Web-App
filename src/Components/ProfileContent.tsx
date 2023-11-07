@@ -21,9 +21,9 @@ export default function ProfileContent({
         <div className="socialIcons">
           {socialURLs &&
             Object.keys(socialURLs).map(
-              (platform) =>
+              (platform, ind) =>
                 socialURLs[platform] && (
-                  <div>
+                  <div key={ind}>
                     <a
                       href={socialURLs[platform]}
                       target="_blank"

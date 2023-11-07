@@ -1,4 +1,4 @@
-import { ImageList, ImageListItem, Modal } from '@mui/material';
+import { ImageList, ImageListItem } from '@mui/material';
 import React, { useEffect, useState } from 'react';
 import { DISCOGRAPHY, FilterMap, Record } from '../Constants/discography';
 import {

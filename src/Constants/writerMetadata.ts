@@ -27,7 +27,8 @@ export const ROSTER_MEMBERS: Record<string, RosterMember> = {
   TOMMY_BROWN: {
     name: 'Tommy Brown',
     imageURL: PLAYLISTS[0].imageURL,
-    biography: `Thomas Lee Brown (born May 1, 1986), also known as TBHits, is an American record producer, songwriter and rapper. Brown currently lives in LA and was born and raised in Pittsburgh, Pennsylvania. He is an ASCAP award winner and a Grammy nominee. He has scored multiple chart topping albums while working with Ariana Grande on all six of her studio albums. Brown has also collected production credits for three songs on Grammy-award-winning artist Meghan Trainor's second album, Thank You.`,
+    biography:
+      'Thomas Lee Brown (born May 1, 1986), also known as TBHits, is an American record producer, songwriter and rapper. Brown currently lives in LA and was born and raised in Pittsburgh, Pennsylvania. He is an ASCAP award winner and a Grammy nominee. He has scored multiple chart topping albums while working with Ariana Grande on all six of her studio albums. Brown has also collected production credits for three songs on Grammy-award-winning artist Meghan Trainors second album, Thank You.',
     bigImageURL: PLAYLISTS[0].bigProfileImageURL || '',
     socials: {
       'Tik Tok': '',
@@ -43,7 +44,8 @@ export const ROSTER_MEMBERS: Record<string, RosterMember> = {
     name: 'Mr. Franks',
     imageURL:
       'https://champagne-therapy-music.sfo3.cdn.digitaloceanspaces.com/Mr.%20Franks%20Profile.png',
-    biography: `Thomas Lee Brown (born May 1, 1986), also known as TBHits, is an American record producer, songwriter and rapper. Brown currently lives in LA and was born and raised in Pittsburgh, Pennsylvania. He is an ASCAP award winner and a Grammy nominee. He has scored multiple chart topping albums while working with Ariana Grande on all six of her studio albums. Brown has also collected production credits for three songs on Grammy-award-winning artist Meghan Trainor's second album, Thank You.`,
+    biography:
+      'Thomas Lee Brown (born May 1, 1986), also known as TBHits, is an American record producer, songwriter and rapper. Brown currently lives in LA and was born and raised in Pittsburgh, Pennsylvania. He is an ASCAP award winner and a Grammy nominee. He has scored multiple chart topping albums while working with Ariana Grande on all six of her studio albums. Brown has also collected production credits for three songs on Grammy-award-winning artist Meghan Trainors second album, Thank You.',
     bigImageURL:
       'https://champagne-therapy-music.sfo3.cdn.digitaloceanspaces.com/Mr.%20Franks%20Profile.png',
     socials: {
@@ -60,7 +62,7 @@ export const ROSTER_MEMBERS: Record<string, RosterMember> = {
     name: 'Peter Lee Johnson',
     imageURL:
       'https://champagne-therapy-music.sfo3.cdn.digitaloceanspaces.com/peter_lee_johnson_pic_2.jpeg',
-    biography: "I'm a goat",
+    biography: 'Im a goat',
     bigImageURL:
       'https://champagne-therapy-music.sfo3.cdn.digitaloceanspaces.com/peter_lee_johnson_pic_1.jpeg',
     socials: {
@@ -76,7 +78,7 @@ export const ROSTER_MEMBERS: Record<string, RosterMember> = {
   MELANIE_JOY_FONTANA: {
     name: 'Melanie Joy Fontana',
     imageURL: 'www.dummy.com',
-    biography: "I'm a goat",
+    biography: 'Im a goat',
     bigImageURL: 'www.bigDummy.com',
     socials: {
       'Tik Tok': '',
@@ -91,7 +93,7 @@ export const ROSTER_MEMBERS: Record<string, RosterMember> = {
   BASS_CHARITY: {
     name: 'Bass Charity',
     imageURL: 'www.dummy.com',
-    biography: "I'm a goat",
+    biography: 'Im a goat',
     bigImageURL: 'www.bigDummy.com',
     socials: {
       'Tik Tok': '',

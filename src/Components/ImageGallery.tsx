@@ -38,7 +38,14 @@ export default function ImageGallery({
     <div className="ImageGallery">
       {groups.map((group, i) => {
         const orientation = i % 2 === 0 ? 'topDownRows' : 'bottomUpRows';
-        return <GroupGallery id={i} images={group} orientation={orientation} />;
+        return (
+          <GroupGallery
+            id={i}
+            key={i}
+            images={group}
+            orientation={orientation}
+          />
+        );
       })}
     </div>
   );

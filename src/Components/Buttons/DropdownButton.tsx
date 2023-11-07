@@ -79,9 +79,10 @@ export const DropdownButton = <T extends keyof FilterMap>({
       >
         <FormGroup>
           {options.map(
-            (option) =>
+            (option, ind) =>
               typeof option === 'string' && (
                 <FormControlLabel
+                  key={ind}
                   control={
                     <Checkbox
                       name={option}

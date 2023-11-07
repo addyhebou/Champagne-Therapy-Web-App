@@ -1,7 +1,6 @@
 import { Button, ThemeProvider } from '@mui/material';
 import React from 'react';
 import { Colors, theme } from '../../Styles/variables';
-import { formButtonClassname } from '../../Styles/FormButton';
 
 interface Props {
   text: string;

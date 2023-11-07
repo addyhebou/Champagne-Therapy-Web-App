@@ -45,13 +45,14 @@ export const SortAndFilterPane = ({
   return (
     <div>
       <div className={sortAndFilterPaneClassname}>
-        {FILTERS.map((filter) => (
+        {FILTERS.map((filter, ind) => (
           <DropdownButton
             text={filter}
             options={getFilterOptions(getCategoryByText(filter))}
             filters={filters}
             setFilters={setFilters}
             category={getCategoryByText(filter)}
+            key={ind}
           />
         ))}
       </div>

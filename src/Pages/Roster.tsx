@@ -40,8 +40,9 @@ export default function Roster() {
 const SearchedList = ({ filteredWriters }: { filteredWriters: Writer[] }) => {
   return (
     <ul className="SearchedList">
-      {filteredWriters.map((writer) => (
+      {filteredWriters.map((writer, i) => (
         <Link
+          key={i}
           to={`/profile/${writer.name}`}
           state={{ writer: writer.name }}
           style={{ textDecoration: 'none' }}

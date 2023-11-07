@@ -27,6 +27,7 @@ export const Contact = () => {
         open={open}
         handleClose={handleClose}
         title={'Thanks For Your Email'}
+        // eslint-disable-next-line
         description={"We'll get in touch with you as soon as possible"}
         buttonText={'Close'}
         artworkURL={EMAIL_CLIP_ART_URL}
